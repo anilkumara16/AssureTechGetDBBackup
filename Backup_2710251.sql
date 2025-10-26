@@ -1,0 +1,1679 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.0.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: sql206.byetcluster.com
+-- Generation Time: Oct 26, 2025 at 03:22 PM
+-- Server version: 11.4.7-MariaDB
+-- PHP Version: 7.2.22
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `if0_40080693_ATGETDB`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ATGET_Academic_Year`
+--
+
+CREATE TABLE `ATGET_Academic_Year` (
+  `Academic_Year` varchar(50) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `ATGET_Academic_Year`
+--
+
+INSERT INTO `ATGET_Academic_Year` (`Academic_Year`) VALUES
+('2025-26');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ATGET_Bank_Details`
+--
+
+CREATE TABLE `ATGET_Bank_Details` (
+  `Bank_ID` int(11) NOT NULL,
+  `Bank_Name` varchar(100) NOT NULL,
+  `Account_Number` varchar(30) NOT NULL,
+  `IFSC_Code` varchar(20) DEFAULT NULL,
+  `Branch_Name` varchar(100) DEFAULT NULL,
+  `Account_Holder_Name` varchar(100) NOT NULL,
+  `Account_Type` varchar(50) DEFAULT NULL,
+  `Alias_Name` varchar(50) DEFAULT NULL,
+  `Created_At` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `ATGET_Bank_Details`
+--
+
+INSERT INTO `ATGET_Bank_Details` (`Bank_ID`, `Bank_Name`, `Account_Number`, `IFSC_Code`, `Branch_Name`, `Account_Holder_Name`, `Account_Type`, `Alias_Name`, `Created_At`) VALUES
+(1, 'VIKAS BANK', '73', NULL, 'HBHALLI', 'ATGET', 'CA', 'VIKAS-ATGET-73', '2025-10-11 18:48:55'),
+(2, 'VIKAS BANK', '1323', NULL, 'HBHALLI', 'FARNAZ S', 'SB', 'VIKAS-FARNAZ_S-1323', '2025-10-11 18:48:55');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ATGET_Course_Duration`
+--
+
+CREATE TABLE `ATGET_Course_Duration` (
+  `Duration_In_Months` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `ATGET_Course_Duration`
+--
+
+INSERT INTO `ATGET_Course_Duration` (`Duration_In_Months`) VALUES
+(3),
+(6),
+(9),
+(12),
+(18),
+(24);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ATGET_Course_Names`
+--
+
+CREATE TABLE `ATGET_Course_Names` (
+  `Course_Names` varchar(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `ATGET_Course_Names`
+--
+
+INSERT INTO `ATGET_Course_Names` (`Course_Names`) VALUES
+('Basics Of Computers'),
+('Diploma in Kannada Typing(Nudi)'),
+('Information Communication Technology'),
+('Tally9');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ATGET_Expense_Table`
+--
+
+CREATE TABLE `ATGET_Expense_Table` (
+  `Transaction_ID` int(11) NOT NULL,
+  `Academic_Year` varchar(20) NOT NULL,
+  `Transaction_Date` date NOT NULL,
+  `Mode_Transaction` varchar(50) NOT NULL,
+  `Expense_Amount` decimal(12,2) NOT NULL,
+  `Particulars` varchar(255) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `ATGET_Expense_Table`
+--
+
+INSERT INTO `ATGET_Expense_Table` (`Transaction_ID`, `Academic_Year`, `Transaction_Date`, `Mode_Transaction`, `Expense_Amount`, `Particulars`) VALUES
+(2, '2025-26', '2025-05-27', 'CASH', '2500.00', 'Being Cash Expense for Application & Bill Book Printing'),
+(3, '2025-26', '2025-06-18', 'CASH', '1350.00', 'Being Cash Expense for Stationary Purchase'),
+(4, '2025-26', '2025-06-18', 'CASH', '160.00', 'Being Cash Expense for paint - to mark ATG on Chairs'),
+(5, '2025-26', '2025-06-20', 'CASH', '19200.00', 'Being Cash Expense for Chairs Purchase'),
+(6, '2025-26', '2025-06-20', 'CASH', '3050.00', 'Being Cash Expense for Earthing Material Purchase'),
+(8, '2025-26', '2025-06-26', 'CASH', '40000.00', 'Being Cash Expense for Computer & Printer Purchase'),
+(9, '2025-26', '2025-06-26', 'CASH', '7000.00', 'Being Cash Expense for travel to Buy Computers'),
+(10, '2025-26', '2025-06-28', 'CASH', '6500.00', 'Being Cash Expense for Middle Table Wood Purchase'),
+(11, '2025-26', '2025-06-28', 'CASH', '690.00', 'Being Cash Expense for Beeding(300) + Scru(300) + Clamp(90)'),
+(12, '2025-26', '2025-06-28', 'CASH', '1800.00', 'Being Cash Expense for Electrical Items for Middle Table @ Renuka'),
+(13, '2025-26', '2025-06-28', 'CASH', '2900.00', 'Being Cash Expense for Middle Table - Mateen(Grill)'),
+(14, '2025-26', '2025-06-30', 'CASH', '530.00', 'Being Cash Expense for Sweet(360) & Decoration(170) Hansi Opening.'),
+(15, '2025-26', '2025-06-30', 'CASH', '1400.00', 'Being Cash Expense for Banner Printing for Hansi'),
+(16, '2025-26', '2025-06-30', 'CASH', '500.00', 'Being Cash Expense for TATA AC Travel Hansi'),
+(17, '2025-26', '2025-06-30', 'CASH', '1000.00', 'Being Cash Expense for Earthing PIT( Hansi + Nagdevathe)'),
+(18, '2025-26', '2025-06-30', 'CASH', '1800.00', 'Being Cash Expense for Application Printing(10 Booklets)'),
+(19, '2025-26', '2025-07-01', 'CASH', '500.00', 'Being Cash Expense for Travel to Hansi'),
+(20, '2025-26', '2025-06-26', 'CASH', '1000.00', 'Being Cash Expense for Computer Purchase day diesel'),
+(21, '2025-26', '2025-06-29', 'CASH', '950.00', 'Being Cash Expense for God Photo(350) + Frame(400) + Hara(200)'),
+(22, '2025-26', '2025-06-16', 'CASH', '1300.00', 'Being Cash Expense for travel Ranebennur for Book Purchase'),
+(23, '2025-26', '2025-07-09', 'CASH', '690.00', 'Being Cash Expense for Medel & Gift Purchase'),
+(24, '2025-26', '2025-07-09', 'CASH', '300.00', 'Being Cash Expense for Medel Purchase second time'),
+(25, '2025-26', '2025-07-09', 'CASH', '100.00', 'Being Cash Expense for Chocolate Purchase'),
+(26, '2025-26', '2025-07-09', 'CASH', '1500.00', 'Being Cash Expense for Banner printing'),
+(27, '2025-26', '2025-07-09', 'CASH', '250.00', 'Being Cash Expense for Nagadevathe school opening pooja'),
+(28, '2025-26', '2025-07-09', 'CASH', '350.00', 'Being Cash Expense for Pooja item purchase for Nagadevathe school'),
+(29, '2025-26', '2025-07-09', 'CASH', '150.00', 'Being Cash Expense for Flower Purchase - Nagadevathe school Opening'),
+(30, '2025-26', '2025-07-09', 'CASH', '70.00', 'Being Cash Expense for Flower Purchase for Nagadevathe school'),
+(31, '2025-26', '2025-07-21', 'CASH', '1600.00', 'Being Cash Expense for KEB Bill Paid for the month of Apr-2025'),
+(32, '2025-26', '2025-09-05', 'CASH', '3000.00', 'Being Cash Expense for Banglore Travel Expense'),
+(33, '2025-26', '2025-06-28', 'VIKAS-FARNAZ_S-1323', '236.00', 'Being Cash Expense for ATM Purchase'),
+(34, '2025-26', '2025-07-02', 'VIKAS-FARNAZ_S-1323', '32.86', 'Being Cash Expense for  Cheque Book Charges'),
+(35, '2025-26', '2025-07-05', 'VIKAS-FARNAZ_S-1323', '14000.00', 'Being Cash Expense for Books Purchase'),
+(36, '2025-26', '2025-07-08', 'VIKAS-FARNAZ_S-1323', '500.00', 'Being Cash Expense for desal for HANSI'),
+(37, '2025-26', '2025-07-08', 'VIKAS-FARNAZ_S-1323', '1139.88', 'Being Cash Expense for Website Registration'),
+(38, '2025-26', '2025-07-21', 'VIKAS-FARNAZ_S-1323', '2035.00', 'Being Cash Expense for KEB Bill - JUN 2025'),
+(39, '2025-26', '2025-07-21', 'VIKAS-FARNAZ_S-1323', '510.00', 'Being Cash Expense for Desal for HANSI'),
+(40, '2025-26', '2025-05-20', 'VIKAS-ATGET-73', '113.28', 'Being Cash Expense for Cheque Book Charges ATGET Account'),
+(41, '2025-26', '2025-07-02', 'VIKAS-ATGET-73', '6000.00', 'Being Cash Expense for Staff Salary'),
+(42, '2025-26', '2025-08-01', 'VIKAS-ATGET-73', '6000.00', 'Being Cash Expense for Staff Salary'),
+(43, '2025-26', '2025-08-01', 'VIKAS-FARNAZ_S-1323', '199.00', 'Being Cash Expense for ATGET SIM Purchase'),
+(44, '2025-26', '2025-08-06', 'VIKAS-FARNAZ_S-1323', '2600.00', 'Being Cash Expense for Account Opening (Anil & Nawaz - each 1300)'),
+(45, '2025-26', '2025-08-07', 'VIKAS-FARNAZ_S-1323', '180.00', 'Being Cash Expense for Attendance Books Purchase'),
+(46, '2025-26', '2025-08-09', 'VIKAS-FARNAZ_S-1323', '100.00', 'Being Cash Expense for Varalakshmi Pooja items Purchase'),
+(47, '2025-26', '2025-08-11', 'VIKAS-FARNAZ_S-1323', '500.00', 'Being Cash Expense for Desal for HANSI'),
+(48, '2025-26', '2025-08-14', 'VIKAS-FARNAZ_S-1323', '500.00', 'Being Cash Expense for desal for Hansi'),
+(49, '2025-26', '2025-08-19', 'VIKAS-FARNAZ_S-1323', '45.00', 'Being Cash Expense for Attendance Book Purchase'),
+(50, '2025-26', '2025-08-20', 'VIKAS-FARNAZ_S-1323', '1785.00', 'Being Cash Expense for KEB Bill JUL 2025'),
+(51, '2025-26', '2025-08-26', 'VIKAS-FARNAZ_S-1323', '500.00', 'Being Cash Expense for Desal for HANSI'),
+(52, '2025-26', '2025-08-29', 'VIKAS-ATGET-73', '12000.00', 'Being Cash Expense for Staff Salary AUG 2025'),
+(53, '2025-26', '2025-09-03', 'VIKAS-FARNAZ_S-1323', '750.00', 'Being Cash Expense for Desal + SIM PORT'),
+(54, '2025-26', '2025-09-05', 'VIKAS-FARNAZ_S-1323', '64500.00', 'Being Cash Expense for Mobile Purchase'),
+(55, '2025-26', '2025-09-09', 'VIKAS-FARNAZ_S-1323', '1312.00', 'Being Cash Expense for 1st Sem Question Paper Printing'),
+(56, '2025-26', '2025-09-09', 'VIKAS-FARNAZ_S-1323', '12000.00', 'Being Cash Expense for SWIFT CAR maintenance'),
+(57, '2025-26', '2025-09-10', 'VIKAS-FARNAZ_S-1323', '4000.00', 'Being Cash Expense for ABS INVESTMENT'),
+(58, '2025-26', '2025-07-14', 'VIKAS-FARNAZ_S-1323', '16000.00', 'Being Cash Expense for NAVAZ BIKE Maintenance'),
+(59, '2025-26', '2025-09-12', 'VIKAS-FARNAZ_S-1323', '4341.00', 'Being Cash Expense for KEM Bill AUG 2025'),
+(60, '2025-26', '2025-09-17', 'VIKAS-FARNAZ_S-1323', '10000.00', 'Being Cash Expense for Navaz Sir Emergency (Hospital Purpose)'),
+(61, '2025-26', '2025-09-17', 'VIKAS-FARNAZ_S-1323', '9550.00', 'Being Cash Expense for ANIL BIKE Maintenance'),
+(62, '2025-26', '2025-09-20', 'VIKAS-FARNAZ_S-1323', '872.00', 'Being Cash Expense for HANSI BRANCH EXAM Purpose'),
+(63, '2025-26', '2025-09-21', 'VIKAS-FARNAZ_S-1323', '2000.00', 'Being Cash Expense for Marks Card+Certificate Printing Advance Paid'),
+(64, '2025-26', '2025-09-24', 'VIKAS-FARNAZ_S-1323', '15000.00', 'Being Cash Expense for MarksCard+ Certificate Printing'),
+(65, '2025-26', '2025-10-01', 'VIKAS-FARNAZ_S-1323', '500.00', 'Being Cash Expense for Dasara Fest'),
+(66, '2025-26', '2025-10-02', 'VIKAS-FARNAZ_S-1323', '150.00', 'Being Cash Expense for Dasara Fest'),
+(67, '2025-26', '2025-10-02', 'VIKAS-FARNAZ_S-1323', '50.00', 'Being Cash Expense for Dasara Fest'),
+(68, '2025-26', '2025-10-02', 'VIKAS-FARNAZ_S-1323', '240.00', 'Being Cash Expense for Dasara Fest'),
+(69, '2025-26', '2025-10-02', 'VIKAS-FARNAZ_S-1323', '650.00', 'Being Cash Expense for Dasara Fest'),
+(70, '2025-26', '2025-09-30', 'VIKAS-ATGET-73', '12000.00', 'Being Cash Expense for Staff Salary'),
+(71, '2025-26', '2025-09-24', 'VIKAS-FARNAZ_S-1323', '700.00', 'Being Cash Expense for HANSI Printer Repair'),
+(72, '2025-26', '2025-10-08', 'VIKAS-FARNAZ_S-1323', '60.00', 'Being Cash Expense for Pooja Item Purchase'),
+(73, '2025-26', '2025-10-08', 'VIKAS-FARNAZ_S-1323', '200.00', 'Being Cash Expense for Mateen Rent Agreement purpose'),
+(74, '2025-26', '2025-10-08', 'VIKAS-FARNAZ_S-1323', '2000.00', 'Being Cash Expense for ABS INVESTMENT'),
+(75, '2025-26', '2025-10-14', 'VIKAS-FARNAZ_S-1323', '2740.00', 'Being Cash Expense for KEB BILL SEP 2025'),
+(76, '2025-26', '2025-10-21', 'VIKAS-FARNAZ_S-1323', '240.00', 'Being Cash Expense for Deepavali Fest'),
+(77, '2025-26', '2025-10-21', 'VIKAS-FARNAZ_S-1323', '160.00', 'Being Cash Expense for Deepavali Fest'),
+(78, '2025-26', '2025-05-01', 'CASH', '5500.00', 'NAVAZ Sir Expense - Before Account Opening');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ATGET_Grading_List`
+--
+
+CREATE TABLE `ATGET_Grading_List` (
+  `Grading_List` varchar(2) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `ATGET_Grading_List`
+--
+
+INSERT INTO `ATGET_Grading_List` (`Grading_List`) VALUES
+('A'),
+('A+'),
+('B'),
+('B+'),
+('C'),
+('C+');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ATGET_Login_Creds`
+--
+
+CREATE TABLE `ATGET_Login_Creds` (
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `Role` varchar(10) DEFAULT NULL,
+  `Date_of_Birth` date DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `ATGET_Login_Creds`
+--
+
+INSERT INTO `ATGET_Login_Creds` (`username`, `password`, `Role`, `Date_of_Birth`) VALUES
+('admin', '$2y$10$v1hIhvJLOcr99C2LPb.BZuIdQ1t0CBywhplGvifYlHbNBtz7jLdxy', 'Admin', '1993-03-15'),
+('anil', '$2y$10$DDyk9YhFTwF3FrwRu2DvW.Qz/BSubAGw08.VR8HXZXycPCZ6sKHiW', 'Admin', '1993-03-15'),
+('nawaz', '$2y$10$jpi3Mxj4lOOnJ85MB1hUDexKTmIFIpURyMkkAoRHuLgp5ixweDGUK', 'Admin', '1992-10-06'),
+('vanaja', '$2y$10$aGuZ17rkDfTp5jmReIPj0eqXCWIHZv8g6/W9kikDDGvJE1vRT7rPu', 'Maker', '2005-10-18'),
+('rashmi', '$2y$10$R8tg0CcUD4UjK5rOCILs2OerULcTLABRzgZaT.WgdNYC3ewM42UFC', 'Maker', '2004-06-16'),
+('user1', '$2y$10$4PnXMpxhkwRhEU.e89r3H.BoZtnFs1qyZzFAtM4e/6kdoJczsSVza', 'Franchise', '1993-03-15');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ATGET_Non_Schools_Result_Table`
+--
+
+CREATE TABLE `ATGET_Non_Schools_Result_Table` (
+  `Admission_No` varchar(20) NOT NULL,
+  `Student_Name` varchar(100) NOT NULL,
+  `Parent_Name` varchar(100) DEFAULT NULL,
+  `Course_Name` varchar(100) NOT NULL,
+  `Course_Duration_In_Months` int(11) DEFAULT NULL,
+  `Course_Start_Date` varchar(20) DEFAULT NULL,
+  `Course_End_Date` varchar(20) DEFAULT NULL,
+  `Total_Marks_Obtained` int(11) DEFAULT NULL,
+  `Marks_In_Grade` varchar(2) DEFAULT NULL,
+  `Scanner_URL` varchar(255) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `ATGET_Non_Schools_Result_Table`
+--
+
+INSERT INTO `ATGET_Non_Schools_Result_Table` (`Admission_No`, `Student_Name`, `Parent_Name`, `Course_Name`, `Course_Duration_In_Months`, `Course_Start_Date`, `Course_End_Date`, `Total_Marks_Obtained`, `Marks_In_Grade`, `Scanner_URL`) VALUES
+('20252610100001', 'SHALINI', 'KALLESH', 'Information Communication Technology', 12, '2025-06', '2026-05', 97, 'A+', 'https://assuretechget.com/view_non_school_results.php?admissionNo=20252610100001');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ATGET_Receipt_Details`
+--
+
+CREATE TABLE `ATGET_Receipt_Details` (
+  `Admission_No` varchar(20) NOT NULL,
+  `Academic_Year` varchar(9) NOT NULL,
+  `Receipt_No` varchar(20) NOT NULL,
+  `Receipt_Amount` decimal(10,2) NOT NULL,
+  `Receipt_Date` date NOT NULL,
+  `Prepared_By` varchar(50) DEFAULT NULL,
+  `School_Name` varchar(20) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `ATGET_Receipt_Details`
+--
+
+INSERT INTO `ATGET_Receipt_Details` (`Admission_No`, `Academic_Year`, `Receipt_No`, `Receipt_Amount`, `Receipt_Date`, `Prepared_By`, `School_Name`) VALUES
+('20252620100073', '2025-26', '901', '700.00', '2025-06-02', 'rashmi', 'SSVS'),
+('20252620100074', '2025-26', '902', '200.00', '2025-06-02', 'rashmi', 'SSVS'),
+('20252620100043', '2025-26', '917', '200.00', '2025-06-11', 'rashmi', 'SSVS'),
+('20252620100060', '2025-26', '904', '500.00', '2025-06-02', 'rashmi', 'SSVS'),
+('20252620100076', '2025-26', '914', '600.00', '2025-06-03', 'rashmi', 'SSVS'),
+('20252620100023', '2025-26', '906', '500.00', '2025-06-03', 'rashmi', 'SSVS'),
+('20252620100058', '2025-26', '907', '1300.00', '2025-06-03', 'rashmi', 'SSVS'),
+('20252620100044', '2025-26', '939', '200.00', '2025-07-02', 'rashmi', 'SSVS'),
+('20252620100061', '2025-26', '909', '200.00', '2025-06-03', 'rashmi', 'SSVS'),
+('20252620100078', '2025-26', '942', '100.00', '2025-07-03', 'rashmi', 'SSVS'),
+('20252620100038', '2025-26', '911', '600.00', '2025-06-03', 'rashmi', 'SSVS'),
+('20252620100021', '2025-26', '941', '200.00', '2025-07-17', 'rashmi', 'SSVS'),
+('20252620100034', '2025-26', '913', '200.00', '2025-06-04', 'rashmi', 'SSVS'),
+('20252620100041', '2025-26', '915', '300.00', '2025-06-04', 'rashmi', 'SSVS'),
+('20252620100040', '2025-26', '916', '200.00', '2025-06-04', 'rashmi', 'SSVS'),
+('20252620100053', '2025-26', '919', '200.00', '2025-06-12', 'rashmi', 'SSVS'),
+('20252620100049', '2025-26', '920', '500.00', '2025-06-04', 'rashmi', 'SSVS'),
+('20252620100077', '2025-26', '921', '600.00', '2025-06-04', 'rashmi', 'SSVS'),
+('20252620100008', '2025-26', '922', '600.00', '2025-06-05', 'rashmi', 'SSVS'),
+('20252620100057', '2025-26', '923', '200.00', '2025-06-05', 'rashmi', 'SSVS'),
+('20252620100017', '2025-26', '924', '500.00', '2025-06-07', 'rashmi', 'SSVS'),
+('20252620100071', '2025-26', '925', '200.00', '2025-07-07', 'rashmi', 'SSVS'),
+('20252620100066', '2025-26', '926', '300.00', '2025-07-07', 'rashmi', 'SSVS'),
+('20252620100029', '2025-26', '927', '200.00', '2025-06-08', 'rashmi', 'SSVS'),
+('20252620100033', '2025-26', '928', '500.00', '2025-06-08', 'rashmi', 'SSVS'),
+('20252620100075', '2025-26', '929', '600.00', '2025-06-08', 'rashmi', 'SSVS'),
+('20252620100009', '2025-26', '931', '500.00', '2025-06-09', 'rashmi', 'SSVS'),
+('20252620100051', '2025-26', '932', '200.00', '2025-06-10', 'rashmi', 'SSVS'),
+('20252620100069', '2025-26', '933', '400.00', '2025-07-10', 'rashmi', 'SSVS'),
+('20252620100048', '2025-26', '934', '300.00', '2025-07-24', 'rashmi', 'SSVS'),
+('20252620100036', '2025-26', '935', '300.00', '2025-06-26', 'rashmi', 'SSVS'),
+('20252620100025', '2025-26', '936', '600.00', '2025-06-28', 'rashmi', 'SSVS'),
+('20252620100078', '2025-26', '908', '500.00', '2025-06-03', 'rashmi', 'SSVS'),
+('20252620100055', '2025-26', '910', '200.00', '2025-06-03', 'rashmi', 'SSVS'),
+('20252620100022', '2025-26', '912', '600.00', '2025-06-03', 'rashmi', 'SSVS'),
+('20252620100014', '2025-26', '937', '600.00', '2025-06-30', 'rashmi', 'SSVS'),
+('20252620100018', '2025-26', '938', '600.00', '2025-06-30', 'rashmi', 'SSVS'),
+('20252620100052', '2025-26', '903', '200.00', '2025-06-02', 'rashmi', 'SSVS'),
+('20252620100056', '2025-26', '918', '200.00', '2025-06-12', 'rashmi', 'SSVS'),
+('20252620100035', '2025-26', '940', '200.00', '2025-07-17', 'rashmi', 'SSVS'),
+('20252620100012', '2025-26', '943', '500.00', '2025-07-17', 'rashmi', 'SSVS'),
+('20252620100063', '2025-26', '944', '500.00', '2025-07-18', 'rashmi', 'SSVS'),
+('20252620100024', '2025-26', '945', '500.00', '2025-07-18', 'rashmi', 'SSVS'),
+('20252620100047', '2025-26', '946', '200.00', '2025-07-10', 'rashmi', 'SSVS'),
+('20252620100064', '2025-26', '947', '500.00', '2025-07-10', 'rashmi', 'SSVS'),
+('20252620100005', '2025-26', '948', '500.00', '2025-07-12', 'rashmi', 'SSVS'),
+('20252620100062', '2025-26', '950', '200.00', '2025-07-15', 'rashmi', 'SSVS'),
+('20252620100030', '2025-26', '952', '200.00', '2025-07-16', 'rashmi', 'SSVS'),
+('20252620100028', '2025-26', '953', '500.00', '2025-07-16', 'rashmi', 'SSVS'),
+('20252620100032', '2025-26', '954', '500.00', '2025-07-17', 'rashmi', 'SSVS'),
+('20252620100072', '2025-26', '955', '200.00', '2025-07-17', 'rashmi', 'SSVS'),
+('20252620100070', '2025-26', '956', '300.00', '2025-07-17', 'rashmi', 'SSVS'),
+('20252620100068', '2025-26', '957', '500.00', '2025-07-19', 'rashmi', 'SSVS'),
+('20252610100003', '2025-26', '00271', '1000.00', '2025-07-21', 'vanaja', 'JJEM'),
+('20252620100042', '2025-26', '959', '200.00', '2025-07-21', 'rashmi', 'SSVS'),
+('20252620100059', '2025-26', '960', '200.00', '2025-07-21', 'rashmi', 'SSVS'),
+('20252620100016', '2025-26', '961', '500.00', '2025-07-21', 'rashmi', 'SSVS'),
+('20252620100019', '2025-26', '962', '500.00', '2025-07-22', 'rashmi', 'SSVS'),
+('20252620100020', '2025-26', '963', '500.00', '2025-07-22', 'rashmi', 'SSVS'),
+('20252620100054', '2025-26', '965', '100.00', '2025-07-23', 'rashmi', 'SSVS'),
+('20252610100002', '2025-26', '00285', '500.00', '2025-08-07', 'vanaja', 'JJEM'),
+('20252620100046', '2025-26', '967', '500.00', '2025-07-28', 'rashmi', 'SSVS'),
+('20252620100065', '2025-26', '968', '200.00', '2025-08-01', 'rashmi', 'SSVS'),
+('20252620100004', '2025-26', '969', '100.00', '2025-08-06', 'rashmi', 'SSVS'),
+('20252620100007', '2025-26', '970', '100.00', '2025-08-08', 'rashmi', 'SSVS'),
+('20252620100037', '2025-26', '971', '200.00', '2025-08-11', 'rashmi', 'SSVS'),
+('20252620100011', '2025-26', '972', '100.00', '2025-08-11', 'rashmi', 'SSVS'),
+('20252620100067', '2025-26', '973', '200.00', '2025-08-12', 'rashmi', 'SSVS'),
+('20252620100045', '2025-26', '974', '200.00', '2025-08-12', 'rashmi', 'SSVS'),
+('20252620100027', '2025-26', '977', '100.00', '2025-08-20', 'rashmi', 'SSVS'),
+('20252620100001', '2025-26', '978', '100.00', '2025-08-20', 'rashmi', 'SSVS'),
+('20252620100055', '2025-26', '979', '200.00', '2025-08-22', 'rashmi', 'SSVS'),
+('20252620100070', '2025-26', '980', '300.00', '2025-08-22', 'rashmi', 'SSVS'),
+('20252620100006', '2025-26', '981', '100.00', '2025-08-22', 'rashmi', 'SSVS'),
+('20252620100005', '2025-26', '982', '500.00', '2025-08-28', 'rashmi', 'SSVS'),
+('20252620100003', '2025-26', '983', '100.00', '2025-08-29', 'rashmi', 'SSVS'),
+('20252620100010', '2025-26', '984', '500.00', '2025-08-29', 'rashmi', 'SSVS'),
+('20252620100064', '2025-26', '985', '100.00', '2025-08-29', 'rashmi', 'SSVS'),
+('20252610100003', '2025-26', '00072', '1000.00', '2025-09-02', 'vanaja', 'JJEM'),
+('20252620100002', '2025-26', '987', '500.00', '2025-09-02', 'rashmi', 'SSVS'),
+('20252620100031', '2025-26', '988', '100.00', '2025-09-03', 'rashmi', 'SSVS'),
+('20252620100035', '2025-26', '989', '300.00', '2025-09-08', 'rashmi', 'SSVS'),
+('20252620100021', '2025-26', '990', '300.00', '2025-09-08', 'rashmi', 'SSVS'),
+('20252620100033', '2025-26', '991', '200.00', '2025-10-08', 'rashmi', 'SSVS'),
+('20252620100065', '2025-26', '992', '400.00', '2025-09-08', 'rashmi', 'SSVS'),
+('20252620100046', '2025-26', '994', '800.00', '2025-09-09', 'rashmi', 'SSVS'),
+('20252620100078', '2025-26', '995', '200.00', '2025-09-09', 'rashmi', 'SSVS'),
+('20252620100049', '2025-26', '998', '400.00', '2025-09-10', 'rashmi', 'SSVS'),
+('20252620100031', '2025-26', '999', '500.00', '2025-09-10', 'rashmi', 'SSVS'),
+('20252620100041', '2025-26', '1000', '400.00', '2025-09-11', 'rashmi', 'SSVS'),
+('20252620100064', '2025-26', '1001', '100.00', '2025-09-11', 'rashmi', 'SSVS'),
+('20252620100074', '2025-26', '1002', '500.00', '2025-09-11', 'rashmi', 'SSVS'),
+('20252620100077', '2025-26', '1003', '100.00', '2025-09-11', 'rashmi', 'SSVS'),
+('20252620100047', '2025-26', '1004', '500.00', '2025-09-11', 'rashmi', 'SSVS'),
+('20252620100017', '2025-26', '1007', '500.00', '2025-09-17', 'rashmi', 'SSVS'),
+('20252620100044', '2025-26', '1010', '500.00', '2025-09-19', 'rashmi', 'SSVS'),
+('20252620100034', '2025-26', '1011', '500.00', '2025-09-19', 'rashmi', 'SSVS'),
+('20252620100040', '2025-26', '1012', '500.00', '2025-09-20', 'rashmi', 'SSVS'),
+('20252610100001', '2025-26', '00258', '500.00', '2025-07-02', 'vanaja', 'JJEM'),
+('20252610100001', '2025-26', '00357', '500.00', '2025-09-08', 'vanaja', 'JJEM'),
+('20252610100004', '2025-26', '00249', '1000.00', '2025-06-28', 'vanaja', 'JJEM'),
+('20252610100005', '2025-26', '00247', '1000.00', '2025-06-26', 'vanaja', 'JJEM'),
+('20252610100006', '2025-26', '00295', '500.00', '2025-08-11', 'vanaja', 'JJEM'),
+('20252610100006', '2025-26', '00295', '500.00', '2025-08-11', 'vanaja', 'JJEM'),
+('20252610100007', '2025-26', '00261', '1500.00', '2025-07-08', 'vanaja', 'JJEM'),
+('20252610100008', '2025-26', '00311', '500.00', '2025-08-18', 'vanaja', 'JJEM'),
+('20252610100009', '2025-26', '00308', '500.00', '2025-08-12', 'vanaja', 'JJEM'),
+('20252610100010', '2025-26', '00338', '500.00', '2025-08-28', 'vanaja', 'JJEM'),
+('20252610100012', '2025-26', '00248', '500.00', '2025-06-28', 'vanaja', 'JJEM'),
+('20252610100011', '2025-26', '00344', '600.00', '2025-09-02', 'vanaja', 'JJEM'),
+('20252610100012', '2025-26', '00349', '500.00', '2025-09-02', 'vanaja', 'JJEM'),
+('20252610100013', '2025-26', '00284', '1000.00', '2025-06-28', 'vanaja', 'JJEM'),
+('20252610100014', '2025-26', '00354', '500.00', '2025-09-03', 'vanaja', 'JJEM'),
+('20252610100015', '2025-26', '00242', '500.00', '2025-06-24', 'vanaja', 'JJEM'),
+('20252610100015', '2025-26', '00337', '500.00', '2025-08-28', 'vanaja', 'JJEM'),
+('20252610100016', '2025-26', '00293', '500.00', '2025-08-11', 'vanaja', 'JJEM'),
+('20252610100017', '2025-26', '00360', '500.00', '2025-09-10', 'vanaja', 'JJEM'),
+('20252610100018', '2025-26', '00361', '500.00', '2025-09-10', 'vanaja', 'JJEM'),
+('20252610100019', '2025-26', '00081', '1000.00', '2025-09-16', 'vanaja', 'JJEM'),
+('20252610100011', '2025-26', '00266', '200.00', '2025-07-16', 'vanaja', 'JJEM'),
+('20252610100020', '2025-26', '00074', '500.00', '2025-09-03', 'vanaja', 'JJEM'),
+('20252610100021', '2025-26', '00263', '1000.00', '2025-07-15', 'vanaja', 'JJEM'),
+('20252610100022', '2025-26', '00306', '1000.00', '2025-08-12', 'vanaja', 'JJEM'),
+('20252610100023', '2025-26', '00283', '500.00', '2025-08-06', 'vanaja', 'JJEM'),
+('20252610100024', '2025-26', '00229', '1000.00', '2025-06-17', 'vanaja', 'JJEM'),
+('20252610100025', '2025-26', '00235', '2000.00', '2025-06-20', 'vanaja', 'JJEM'),
+('20252610100026', '2025-26', '00259', '1500.00', '2025-07-08', 'vanaja', 'JJEM'),
+('20252610100027', '2025-26', '00257', '200.00', '2025-08-02', 'vanaja', 'JJEM'),
+('20252610100027', '2025-26', '00352', '200.00', '2025-09-02', 'vanaja', 'JJEM'),
+('20252610100028', '2025-26', '00250', '200.00', '2025-06-28', 'vanaja', 'JJEM'),
+('20252610100028', '2025-26', '00080', '800.00', '2025-09-13', 'vanaja', 'JJEM'),
+('20252610100030', '2025-26', '00256', '1000.00', '2025-07-02', 'vanaja', 'JJEM'),
+('20252610100031', '2025-26', '00066', '500.00', '2025-08-29', 'vanaja', 'JJEM'),
+('20252610100032', '2025-26', '00273', '1000.00', '2025-07-25', 'vanaja', 'JJEM'),
+('20252610100033', '2025-26', '00251', '200.00', '2025-06-28', 'vanaja', 'JJEM'),
+('20252610100033', '2025-26', '00079', '800.00', '2025-09-13', 'vanaja', 'JJEM'),
+('20252610100035', '2025-26', '00287', '200.00', '2025-08-07', 'vanaja', 'JJEM'),
+('20252610100036', '2025-26', '00252', '200.00', '2025-06-28', 'vanaja', 'JJEM'),
+('20252610100036', '2025-26', '00322', '300.00', '2025-08-21', 'vanaja', 'JJEM'),
+('20252610100036', '2025-26', '00330', '500.00', '2025-08-25', 'vanaja', 'JJEM'),
+('20252610100037', '2025-26', '00333', '500.00', '2025-08-26', 'vanaja', 'JJEM'),
+('20252610100037', '2025-26', '00370', '500.00', '2025-09-12', 'vanaja', 'JJEM'),
+('20252610100038', '2025-26', '00223', '500.00', '2025-06-16', 'vanaja', 'JJEM'),
+('20252610100039', '2025-26', '00227', '500.00', '2025-06-17', 'vanaja', 'JJEM'),
+('20252610100039', '2025-26', '00327', '500.00', '2025-08-23', 'vanaja', 'JJEM'),
+('20252610100040', '2025-26', '00292', '2000.00', '2025-08-09', 'vanaja', 'JJEM'),
+('20252610100041', '2025-26', '00379', '500.00', '2025-09-15', 'vanaja', 'JJEM'),
+('20252610100042', '2025-26', '00299', '500.00', '2025-08-11', 'vanaja', 'JJEM'),
+('20252610100043', '2025-26', '00300', '200.00', '2025-08-11', 'vanaja', 'JJEM'),
+('20252610100044', '2025-26', '00243', '1000.00', '2025-06-25', 'vanaja', 'JJEM'),
+('20252610100044', '2025-26', '00068', '1000.00', '2025-08-29', 'vanaja', 'JJEM'),
+('20252610100046', '2025-26', '00241', '1000.00', '2025-06-24', 'vanaja', 'JJEM'),
+('20252610100047', '2025-26', '00278', '500.00', '2025-08-04', 'vanaja', 'JJEM'),
+('20252610100047', '2025-26', '00364', '500.00', '2025-09-11', 'vanaja', 'JJEM'),
+('20252610100048', '2025-26', '00231', '1000.00', '2025-06-18', 'vanaja', 'JJEM'),
+('20252610100049', '2025-26', '00279', '200.00', '2025-08-05', 'vanaja', 'JJEM'),
+('20252610100049', '2025-26', '00374', '800.00', '2025-09-12', 'vanaja', 'JJEM'),
+('20252610100050', '2025-26', '00298', '200.00', '2025-08-11', 'vanaja', 'JJEM'),
+('20252610100050', '2025-26', '00380', '1000.00', '2025-09-15', 'vanaja', 'JJEM'),
+('20252610100051', '2025-26', '00265', '500.00', '2025-07-16', 'vanaja', 'JJEM'),
+('20252610100052', '2025-26', '00348', '1000.00', '2025-09-02', 'vanaja', 'JJEM'),
+('20252610100053', '2025-26', '00289', '1000.00', '2025-08-08', 'vanaja', 'JJEM'),
+('20252610100054', '2025-26', '00215', '500.00', '2025-06-10', 'vanaja', 'JJEM'),
+('20252610100055', '2025-26', '00297', '200.00', '2025-08-11', 'vanaja', 'JJEM'),
+('20252610100056', '2025-26', '00220', '1000.00', '2025-06-12', 'vanaja', 'JJEM'),
+('20252610100057', '2025-26', '00237', '500.00', '2025-06-20', 'vanaja', 'JJEM'),
+('20252610100058', '2025-26', '00301', '200.00', '2025-08-11', 'vanaja', 'JJEM'),
+('20252610100059', '2025-26', '00262', '1000.00', '2025-07-15', 'vanaja', 'JJEM'),
+('20252610100060', '2025-26', '00328', '1800.00', '2025-08-25', 'vanaja', 'JJEM'),
+('20252610100061', '2025-26', '00350', '500.00', '2025-09-02', 'vanaja', 'JJEM'),
+('20252610100062', '2025-26', '00239', '2000.00', '2025-06-23', 'vanaja', 'JJEM'),
+('20252610100063', '2025-26', '00245', '500.00', '2025-06-26', 'vanaja', 'JJEM'),
+('20252610100063', '2025-26', '00366', '500.00', '2025-09-11', 'vanaja', 'JJEM'),
+('20252610100064', '2025-26', '00310', '500.00', '2025-08-13', 'vanaja', 'JJEM'),
+('20252610100065', '2025-26', '00274', '1000.00', '2025-07-25', 'vanaja', 'JJEM'),
+('20252610100066', '2025-26', '00222', '1000.00', '2025-06-14', 'vanaja', 'JJEM'),
+('20252610100067', '2025-26', '000663', '500.00', '2025-08-29', 'vanaja', 'JJEM'),
+('20252610100068', '2025-26', '00294', '500.00', '2025-08-11', 'vanaja', 'JJEM'),
+('20252610100069', '2025-26', '00304', '1000.00', '2025-08-12', 'vanaja', 'JJEM'),
+('20252610100070', '2025-26', '00260', '1500.00', '2025-07-08', 'vanaja', 'JJEM'),
+('20252610100071', '2025-26', '00282', '1000.00', '2025-08-05', 'vanaja', 'JJEM'),
+('20252610100072', '2025-26', '00302', '500.00', '2025-08-11', 'vanaja', 'JJEM'),
+('20252610100072', '2025-26', '00365', '500.00', '2025-09-11', 'vanaja', 'JJEM'),
+('20252610100074', '2025-26', '00253', '1000.00', '2025-06-28', 'vanaja', 'JJEM'),
+('20252610100074', '2025-26', '00356', '1000.00', '2025-09-04', 'vanaja', 'JJEM'),
+('20252610100075', '2025-26', '00334', '500.00', '2025-08-26', 'vanaja', 'JJEM'),
+('20252610100075', '2025-26', '00371', '500.00', '2025-09-12', 'vanaja', 'JJEM'),
+('20252610100076', '2025-26', '00276', '500.00', '2025-08-01', 'vanaja', 'JJEM'),
+('20252610100076', '2025-26', '00339', '500.00', '2025-09-01', 'vanaja', 'JJEM'),
+('20252610100077', '2025-26', '00323', '500.00', '2025-08-21', 'vanaja', 'JJEM'),
+('20252610100078', '2025-26', '00073', '2000.00', '2025-09-03', 'vanaja', 'JJEM'),
+('20252610100079', '2025-26', '00067', '500.00', '2025-08-29', 'vanaja', 'JJEM'),
+('20252610100080', '2025-26', '00267', '200.00', '2025-07-16', 'vanaja', 'JJEM'),
+('20252610100080', '2025-26', '00345', '600.00', '2025-09-02', 'vanaja', 'JJEM'),
+('20252610100081', '2025-26', '00268', '200.00', '2025-07-16', 'vanaja', 'JJEM'),
+('20252610100081', '2025-26', '00346', '600.00', '2025-09-02', 'vanaja', 'JJEM'),
+('20252610100082', '2025-26', '00240', '1000.00', '2025-06-24', 'vanaja', 'JJEM');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ATGET_Report_Type`
+--
+
+CREATE TABLE `ATGET_Report_Type` (
+  `Report_Name` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `ATGET_Report_Type`
+--
+
+INSERT INTO `ATGET_Report_Type` (`Report_Name`) VALUES
+('Complete Student Details'),
+('Complete Receipt Details'),
+('Admission No Wise Total Fee Paid');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ATGET_Schools_Result_Table`
+--
+
+CREATE TABLE `ATGET_Schools_Result_Table` (
+  `Admission_No` varchar(20) NOT NULL,
+  `Current_ClassOrStandard` varchar(20) NOT NULL,
+  `Semister` varchar(10) NOT NULL,
+  `Marks_Obtained_For_Attendance` int(11) DEFAULT NULL,
+  `Marks_Obtained_In_Assesment` int(11) DEFAULT NULL,
+  `Marks_Obtained_In_Theory_Exam` int(11) DEFAULT NULL,
+  `Marks_Obtained_In_Lab_Exam` int(11) DEFAULT NULL,
+  `Total_Marks_Obtained` int(11) DEFAULT NULL,
+  `Marks_In_Grade` varchar(2) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `ATGET_Schools_Result_Table`
+--
+
+INSERT INTO `ATGET_Schools_Result_Table` (`Admission_No`, `Current_ClassOrStandard`, `Semister`, `Marks_Obtained_For_Attendance`, `Marks_Obtained_In_Assesment`, `Marks_Obtained_In_Theory_Exam`, `Marks_Obtained_In_Lab_Exam`, `Total_Marks_Obtained`, `Marks_In_Grade`) VALUES
+('20252620100002', '2nd', 'Sem 1', 8, 5, 29, 38, 80, 'A'),
+('20252620100001', '2nd', 'Sem 1', 10, 5, 29, 34, 78, 'A'),
+('20252620100004', '2nd', 'Sem 1', 8, 3, 36, 32, 79, 'A'),
+('20252620100005', '2nd', 'Sem 1', 8, 5, 37, 32, 82, 'A'),
+('20252620100006', '2nd', 'Sem 1', 7, 5, 34, 22, 68, 'B+'),
+('20252620100007', '2nd', 'Sem 1', 8, 5, 36, 30, 79, 'A'),
+('20252620100008', '2nd', 'Sem 1', 10, 5, 37, 30, 82, 'A'),
+('20252620100009', '2nd', 'Sem 1', 8, 5, 36, 29, 78, 'A'),
+('20252620100010', '2nd', 'Sem 1', 10, 5, 36, 29, 80, 'A'),
+('20252620100011', '2nd', 'Sem 1', 10, 5, 36, 29, 80, 'A'),
+('20252620100012', '3rd', 'Sem 1', 8, 5, 37, 38, 88, 'A'),
+('20252620100013', '3rd', 'Sem 1', 10, 5, 32, 28, 75, 'A'),
+('20252620100014', '3rd', 'Sem 1', 10, 5, 37, 35, 87, 'A'),
+('20252620100015', '3rd', 'Sem 1', 10, 5, 39, 39, 93, 'A+'),
+('20252620100016', '3rd', 'Sem 1', 7, 5, 37, 30, 79, 'A'),
+('20252620100017', '3rd', 'Sem 1', 7, 5, 37, 31, 80, 'A'),
+('20252620100018', '4th', 'Sem 1', 8, 5, 37, 34, 84, 'A'),
+('20252620100019', '4th', 'Sem 1', 7, 5, 37, 32, 81, 'A'),
+('20252620100020', '4th', 'Sem 1', 8, 5, 38, 32, 83, 'A'),
+('20252620100021', '4th', 'Sem 1', 7, 5, 37, 30, 79, 'A'),
+('20252620100022', '4th', 'Sem 1', 8, 5, 38, 34, 85, 'A'),
+('20252620100023', '4th', 'Sem 1', 8, 5, 38, 34, 85, 'A'),
+('20252620100025', '4th', 'Sem 1', 8, 5, 39, 38, 90, 'A+'),
+('20252620100026', '4th', 'Sem 1', 7, 4, 36, 32, 79, 'A'),
+('20252620100027', '5th', 'Sem 1', 9, 5, 35, 30, 79, 'A'),
+('20252620100028', '5th', 'Sem 1', 9, 5, 38, 38, 90, 'A+'),
+('20252620100029', '5th', 'Sem 1', 9, 5, 40, 40, 94, 'A+'),
+('20252620100030', '5th', 'Sem 1', 9, 5, 38, 32, 84, 'A'),
+('20252620100031', '5th', 'Sem 1', 8, 4, 38, 34, 84, 'A'),
+('20252620100032', '5th', 'Sem 1', 9, 5, 40, 34, 88, 'A'),
+('20252620100033', '5th', 'Sem 1', 8, 4, 38, 32, 82, 'A'),
+('20252620100034', '5th', 'Sem 1', 8, 5, 40, 39, 92, 'A+'),
+('20252620100035', '5th', 'Sem 1', 8, 5, 41, 34, 88, 'A'),
+('20252620100036', '5th', 'Sem 1', 9, 5, 39, 38, 91, 'A+'),
+('20252620100037', '5th', 'Sem 1', 9, 5, 34, 34, 82, 'A'),
+('20252620100038', '5th', 'Sem 1', 9, 5, 31, 30, 75, 'A'),
+('20252620100039', '5th', 'Sem 1', 9, 5, 38, 32, 84, 'A'),
+('20252620100040', '6th', 'Sem 1', 9, 5, 35, 30, 79, 'A'),
+('20252620100041', '6th', 'Sem 1', 8, 5, 38, 38, 89, 'A'),
+('20252620100042', '6th', 'Sem 1', 6, 5, 38, 30, 79, 'A'),
+('20252620100079', '6th', 'Sem 1', 8, 5, 41, 38, 92, 'A+'),
+('20252620100043', '6th', 'Sem 1', 8, 5, 38, 34, 85, 'A'),
+('20252620100044', '6th', 'Sem 1', 8, 5, 38, 30, 81, 'A'),
+('20252620100046', '6th', 'Sem 1', 9, 3, 38, 34, 84, 'A'),
+('20252620100047', '6th', 'Sem 1', 7, 3, 32, 30, 72, 'A'),
+('20252620100048', '6th', 'Sem 1', 9, 5, 37, 38, 89, 'A+'),
+('20252620100049', '6th', 'Sem 1', 6, 5, 40, 40, 91, 'A+'),
+('20252620100050', '6th', 'Sem 1', 8, 3, 39, 30, 80, 'A'),
+('20252620100051', '6th', 'Sem 1', 5, 5, 39, 34, 83, 'A'),
+('20252620100052', '7th', 'Sem 1', 9, 5, 40, 40, 94, 'A+'),
+('20252620100053', '7th', 'Sem 1', 9, 3, 37, 30, 79, 'A'),
+('20252620100054', '7th', 'Sem 1', 8, 3, 39, 31, 81, 'A'),
+('20252620100055', '7th', 'Sem 1', 8, 5, 40, 38, 91, 'A+'),
+('20252620100056', '7th', 'Sem 1', 8, 5, 42, 40, 95, 'A+'),
+('20252620100057', '7th', 'Sem 1', 9, 5, 40, 38, 92, 'A+'),
+('20252620100058', '7th', 'Sem 2', 9, 3, 38, 40, 90, 'A+'),
+('20252620100059', '7th', 'Sem 1', 9, 5, 44, 40, 98, 'A+'),
+('20252620100060', '7th', 'Sem 2', 9, 5, 44, 40, 98, 'A'),
+('20252620100061', '7th', 'Sem 1', 8, 5, 39, 39, 91, 'A+'),
+('20252620100062', '7th', 'Sem 1', 9, 3, 37, 30, 79, 'A'),
+('20252620100064', '8th', 'Sem 1', 10, 5, 42, 40, 97, 'A+'),
+('20252620100065', '8th', 'Sem 1', 8, 5, 39, 34, 86, 'A'),
+('20252620100066', '8th', 'Sem 1', 8, 5, 39, 32, 84, 'A'),
+('20252620100067', '8th', 'Sem 1', 8, 5, 39, 32, 84, 'A'),
+('20252620100069', '8th', 'Sem 1', 8, 5, 38, 32, 83, 'A+'),
+('20252620100070', '8th', 'Sem 1', 8, 5, 39, 34, 86, 'A'),
+('20252620100071', '8th', 'Sem 1', 8, 5, 39, 34, 86, 'A'),
+('20252620100072', '8th', 'Sem 1', 9, 5, 43, 40, 97, 'A'),
+('20252620100073', '9th', 'Sem 1', 8, 5, 43, 40, 96, 'A+'),
+('20252620100074', '9th', 'Sem 1', 8, 5, 40, 40, 93, 'A+'),
+('20252620100075', '9th', 'Sem 1', 8, 5, 40, 32, 85, 'A'),
+('20252620100077', '9th', 'Sem 1', 10, 5, 42, 39, 96, 'A+'),
+('20252620100078', '9th', 'Sem 1', 7, 5, 40, 34, 86, 'A'),
+('20252610100001', '4th', 'Sem 1', 10, 4, 28, 46, 88, 'A'),
+('20252610100002', '4th', 'Sem 1', 10, 4, 27, 43, 84, 'A'),
+('20252610100003', '4th', 'Sem 1', 10, 4, 30, 43, 87, 'A'),
+('20252610100004', '4th', 'Sem 1', 10, 3, 26, 43, 82, 'A'),
+('20252610100005', '4th', 'Sem 1', 8, 5, 28, 42, 83, 'A'),
+('20252610100006', '4th', 'Sem 1', 10, 3, 27, 36, 76, 'A'),
+('20252610100007', '4th', 'Sem 1', 10, 4, 32, 41, 87, 'A'),
+('20252610100008', '4th', 'Sem 1', 9, 4, 32, 40, 85, 'A'),
+('20252610100009', '4th', 'Sem 1', 9, 3, 33, 45, 90, 'A+'),
+('20252610100010', '4th', 'Sem 1', 8, 3, 29, 44, 84, 'A'),
+('20252610100011', '4th', 'Sem 1', 10, 5, 31, 49, 95, 'A+'),
+('20252610100012', '4th', 'Sem 1', 10, 4, 26, 47, 87, 'A'),
+('20252610100013', '4th', 'Sem 1', 9, 5, 26, 39, 79, 'A'),
+('20252610100014', '4th', 'Sem 1', 8, 2, 26, 39, 75, 'A'),
+('20252610100015', '4th', 'Sem 1', 9, 2, 30, 37, 78, 'A'),
+('20252610100016', '4th', 'Sem 1', 9, 5, 32, 47, 93, 'A+'),
+('20252610100017', '4th', 'Sem 1', 10, 5, 28, 45, 88, 'A'),
+('20252610100018', '4th', 'Sem 1', 10, 5, 28, 46, 89, 'A+'),
+('20252610100019', '4th', 'Sem 1', 10, 1, 25, 37, 73, 'A'),
+('20252610100020', '5th', 'Sem 1', 10, 5, 27, 39, 81, 'A'),
+('20252610100021', '5th', 'Sem 1', 10, 5, 26, 41, 82, 'A'),
+('20252610100022', '5th', 'Sem 1', 8, 5, 23, 39, 75, 'A'),
+('20252610100023', '5th', 'Sem 1', 10, 4, 24, 40, 78, 'A'),
+('20252610100024', '5th', 'Sem 1', 8, 5, 28, 41, 82, 'A'),
+('20252610100025', '5th', 'Sem 1', 10, 5, 29, 41, 85, 'A'),
+('20252610100026', '5th', 'Sem 1', 10, 5, 33, 44, 92, 'A+'),
+('20252610100027', '5th', 'Sem 1', 9, 2, 31, 36, 78, 'A'),
+('20252610100028', '5th', 'Sem 1', 8, 5, 23, 38, 74, 'A'),
+('20252610100029', '5th', 'Sem 1', 8, 4, 20, 42, 74, 'A'),
+('20252610100030', '5th', 'Sem 1', 9, 4, 24, 40, 77, 'A'),
+('20252610100031', '5th', 'Sem 1', 8, 4, 24, 39, 75, 'A'),
+('20252610100032', '5th', 'Sem 1', 9, 4, 30, 37, 80, 'A'),
+('20252610100033', '5th', 'Sem 1', 9, 5, 25, 42, 81, 'A'),
+('20252610100034', '5th', 'Sem 1', 10, 4, 29, 44, 87, 'A'),
+('20252610100036', '5th', 'Sem 1', 10, 4, 31, 43, 88, 'A'),
+('20252610100037', '5th', 'Sem 1', 8, 5, 26, 38, 77, 'A'),
+('20252610100038', '5th', 'Sem 1', 9, 4, 22, 43, 78, 'A'),
+('20252610100039', '5th', 'Sem 1', 9, 5, 24, 43, 81, 'A'),
+('20252610100040', '5th', 'Sem 1', 9, 5, 24, 37, 75, 'A'),
+('20252610100041', '5th', 'Sem 1', 8, 5, 22, 42, 77, 'A'),
+('20252610100042', '6th', 'Sem 1', 9, 5, 28, 39, 81, 'A'),
+('20252610100043', '6th', 'Sem 1', 8, 5, 26, 44, 83, 'A'),
+('20252610100044', '6th', 'Sem 1', 10, 5, 32, 41, 88, 'A'),
+('20252610100045', '6th', 'Sem 1', 10, 5, 22, 40, 77, 'A'),
+('20252610100046', '6th', 'Sem 1', 10, 5, 30, 48, 93, 'A+'),
+('20252610100047', '6th', 'Sem 1', 10, 5, 31, 47, 93, 'A+'),
+('20252610100048', '6th', 'Sem 1', 10, 5, 33, 48, 96, 'A+'),
+('20252610100049', '6th', 'Sem 1', 10, 5, 31, 41, 87, 'A'),
+('20252610100051', '6th', 'Sem 1', 9, 5, 29, 39, 82, 'A'),
+('20252610100052', '6th', 'Sem 1', 8, 5, 31, 40, 84, 'A'),
+('20252610100053', '6th', 'Sem 1', 9, 5, 30, 41, 85, 'A'),
+('20252610100055', '6th', 'Sem 1', 9, 3, 26, 42, 80, 'A'),
+('20252610100056', '6th', 'Sem 1', 10, 5, 33, 48, 96, 'A+'),
+('20252610100057', '6th', 'Sem 1', 9, 1, 26, 40, 76, 'A'),
+('20252610100058', '6th', 'Sem 1', 9, 5, 25, 37, 76, 'A'),
+('20252610100059', '6th', 'Sem 1', 7, 3, 24, 38, 72, 'A'),
+('20252610100060', '6th', 'Sem 1', 10, 5, 31, 42, 88, 'A'),
+('20252610100061', '6th', 'Sem 1', 8, 5, 29, 41, 83, 'A'),
+('20252610100062', '6th', 'Sem 1', 10, 5, 34, 47, 96, 'A+'),
+('20252610100063', '6th', 'Sem 1', 9, 5, 31, 43, 88, 'A'),
+('20252610100064', '6th', 'Sem 1', 9, 5, 31, 39, 84, 'A'),
+('20252610100065', '7th', 'Sem 1', 10, 4, 25, 39, 78, 'A'),
+('20252610100066', '7th', 'Sem 1', 9, 5, 30, 41, 85, 'A'),
+('20252610100067', '7th', 'Sem 1', 9, 4, 31, 43, 87, 'A'),
+('20252610100068', '7th', 'Sem 1', 10, 5, 31, 43, 89, 'A+'),
+('20252610100069', '7th', 'Sem 1', 8, 3, 30, 42, 83, 'A'),
+('20252610100070', '7th', 'Sem 1', 10, 5, 31, 43, 89, 'A+'),
+('20252610100071', '7th', 'Sem 1', 9, 5, 31, 44, 89, 'A+'),
+('20252610100073', '7th', 'Sem 1', 10, 3, 28, 39, 80, 'A'),
+('20252610100074', '7th', 'Sem 1', 10, 5, 27, 44, 86, 'A'),
+('20252610100075', '7th', 'Sem 1', 8, 5, 31, 41, 85, 'A'),
+('20252610100072', '7th', 'Sem 1', 8, 5, 32, 45, 90, 'A+'),
+('20252610100076', '7th', 'Sem 1', 10, 5, 26, 43, 84, 'A'),
+('20252610100077', '7th', 'Sem 1', 8, 5, 31, 41, 85, 'A'),
+('20252610100078', '7th', 'Sem 1', 9, 3, 24, 41, 77, 'A'),
+('20252610100079', '7th', 'Sem 1', 9, 5, 31, 43, 88, 'A'),
+('20252610100080', '7th', 'Sem 1', 8, 3, 31, 41, 83, 'A'),
+('20252610100081', '7th', 'Sem 1', 8, 3, 29, 43, 83, 'A'),
+('20252610100082', '7th', 'Sem 1', 9, 5, 31, 43, 88, 'A'),
+('20252610100083', '8th', 'Sem 1', 10, 5, 33, 41, 89, 'A+'),
+('20252610100084', '8th', 'Sem 1', 9, 5, 28, 43, 85, 'A'),
+('20252610100085', '8th', 'Sem 1', 9, 5, 30, 38, 82, 'A'),
+('20252610100086', '8th', 'Sem 1', 10, 5, 31, 42, 88, 'A'),
+('20252610100087', '8th', 'Sem 1', 9, 1, 31, 38, 79, 'A'),
+('20252610100088', '8th', 'Sem 1', 10, 5, 32, 42, 89, 'A+'),
+('20252610100090', '8th', 'Sem 1', 9, 5, 32, 43, 89, 'A+'),
+('20252610100091', '8th', 'Sem 1', 9, 3, 31, 42, 85, 'A'),
+('20252610100092', '8th', 'Sem 1', 10, 5, 25, 42, 82, 'A'),
+('20252610100093', '8th', 'Sem 1', 10, 5, 30, 42, 87, 'A'),
+('20252610100094', '8th', 'Sem 1', 9, 3, 31, 42, 85, 'A'),
+('20252610100095', '8th', 'Sem 1', 10, 3, 29, 41, 83, 'A'),
+('20252610100096', '8th', 'Sem 1', 9, 5, 30, 39, 83, 'A'),
+('20252610100097', '8th', 'Sem 1', 10, 5, 32, 44, 91, 'A+'),
+('20252610100098', '8th', 'Sem 1', 10, 3, 28, 41, 82, 'A'),
+('20252610100099', '8th', 'Sem 1', 9, 2, 31, 43, 85, 'A'),
+('20252610100100', '8th', 'Sem 1', 10, 5, 24, 41, 80, 'A'),
+('20252610100101', '8th', 'Sem 1', 10, 5, 29, 42, 86, 'A'),
+('20252610100102', '8th', 'Sem 1', 9, 5, 33, 42, 89, 'A+'),
+('20252610100103', '8th', 'Sem 1', 8, 5, 30, 48, 91, 'A+'),
+('20252610100104', '8th', 'Sem 1', 10, 5, 32, 45, 92, 'A+'),
+('20252610100105', '9th', 'Sem 1', 10, 5, 31, 46, 92, 'A+'),
+('20252610100106', '9th', 'Sem 1', 10, 5, 33, 48, 96, 'A+'),
+('20252610100107', '9th', 'Sem 1', 10, 5, 31, 44, 90, 'A+'),
+('20252610100108', '9th', 'Sem 1', 10, 5, 33, 48, 96, 'A+'),
+('20252610100109', '9th', 'Sem 1', 10, 5, 31, 46, 92, 'A+'),
+('20252610100110', '9th', 'Sem 1', 10, 5, 25, 42, 82, 'A'),
+('20252610100111', '9th', 'Sem 1', 9, 5, 28, 44, 86, 'A'),
+('20252610100112', '9th', 'Sem 1', 8, 5, 32, 46, 91, 'A+'),
+('20252610100113', '9th', 'Sem 1', 10, 5, 28, 44, 87, 'A'),
+('20252610100114', '9th', 'Sem 1', 10, 5, 31, 45, 91, 'A+'),
+('20252610100115', '9th', 'Sem 1', 10, 3, 29, 44, 86, 'A'),
+('20252610100116', '9th', 'Sem 1', 9, 1, 29, 38, 77, 'A'),
+('20252610100117', '9th', 'Sem 1', 9, 5, 31, 42, 87, 'A'),
+('20252610100118', '9th', 'Sem 1', 9, 3, 31, 41, 84, 'A'),
+('20252610100119', '9th', 'Sem 1', 10, 5, 31, 39, 85, 'A'),
+('20252610100120', '9th', 'Sem 1', 10, 5, 31, 42, 88, 'A'),
+('20252610100121', '9th', 'Sem 1', 9, 3, 29, 42, 83, 'A'),
+('20252610100122', '9th', 'Sem 1', 9, 5, 31, 42, 87, 'A'),
+('20252610100123', '9th', 'Sem 1', 10, 5, 34, 48, 97, 'A+'),
+('20252610100124', '8th', 'Sem 1', 9, 5, 31, 40, 85, 'A'),
+('20252610100125', '8th', 'Sem 1', 9, 5, 29, 40, 83, 'A'),
+('20252610100127', '8th', 'Sem 1', 10, 5, 30, 44, 89, 'A+'),
+('20252610100128', '8th', 'Sem 1', 8, 5, 30, 39, 82, 'A'),
+('20252610100129', '8th', 'Sem 1', 9, 5, 27, 37, 78, 'A'),
+('20252610100130', '8th', 'Sem 1', 9, 5, 29, 43, 86, 'A'),
+('20252610100131', '8th', 'Sem 1', 9, 5, 27, 45, 86, 'A'),
+('20252610100132', '8th', 'Sem 1', 8, 5, 28, 42, 83, 'A'),
+('20252610100133', '8th', 'Sem 1', 9, 5, 29, 41, 84, 'B+'),
+('20252610100134', '9th', 'Sem 1', 10, 5, 29, 41, 85, 'A'),
+('20252610100135', '9th', 'Sem 1', 8, 5, 27, 36, 76, 'A'),
+('20252610100136', '9th', 'Sem 1', 9, 4, 28, 36, 77, 'A'),
+('20252610100138', '9th', 'Sem 1', 10, 5, 33, 45, 93, 'A+'),
+('20252610100139', '9th', 'Sem 1', 10, 3, 27, 35, 75, 'A'),
+('20252610100140', '9th', 'Sem 1', 10, 5, 28, 46, 89, 'A+'),
+('20252610100141', '9th', 'Sem 1', 10, 5, 27, 46, 88, 'A'),
+('20252610100143', '9th', 'Sem 1', 10, 5, 31, 42, 88, 'A'),
+('20252610100144', '9th', 'Sem 1', 9, 5, 25, 39, 78, 'A'),
+('20252610100145', '9th', 'Sem 1', 9, 5, 23, 42, 79, 'A'),
+('20252610100146', '9th', 'Sem 1', 10, 5, 25, 39, 79, 'A'),
+('20252610100147', '9th', 'Sem 1', 9, 5, 25, 34, 73, 'A'),
+('20252610100148', '9th', 'Sem 1', 10, 5, 23, 37, 75, 'A'),
+('20252610100149', '9th', 'Sem 1', 10, 2, 23, 44, 79, 'A'),
+('20252610100150', '9th', 'Sem 1', 9, 5, 26, 41, 81, 'A'),
+('20252610100151', '9th', 'Sem 1', 10, 5, 28, 43, 86, 'A'),
+('20252610100152', '9th', 'Sem 1', 10, 5, 31, 42, 88, 'A'),
+('20252610100153', '9th', 'Sem 1', 9, 5, 26, 40, 80, 'A'),
+('20252610100154', '9th', 'Sem 1', 10, 3, 25, 39, 77, 'A'),
+('20252610100155', '8th', 'Sem 1', 9, 5, 30, 34, 78, 'A'),
+('20252610100156', '8th', 'Sem 1', 10, 3, 26, 36, 75, 'A'),
+('20252610100157', '8th', 'Sem 1', 9, 3, 27, 42, 81, 'A'),
+('20252610100158', '8th', 'Sem 1', 10, 3, 26, 41, 80, 'A'),
+('20252610100159', '8th', 'Sem 1', 9, 3, 30, 42, 84, 'A'),
+('20252610100160', '8th', 'Sem 1', 10, 3, 28, 39, 80, 'A'),
+('20252610100161', '9th', 'Sem 1', 9, 3, 25, 38, 75, 'A'),
+('20252610100162', '9th', 'Sem 1', 8, 3, 26, 37, 74, 'A'),
+('20252610100163', '9th', 'Sem 1', 9, 3, 24, 40, 76, 'A'),
+('20252610100165', '8th', 'Sem 1', 9, 5, 24, 39, 77, 'A'),
+('20252610100166', '8th', 'Sem 1', 10, 2, 30, 39, 81, 'A'),
+('20252610100167', '8th', 'Sem 1', 9, 3, 29, 32, 73, 'A'),
+('20252610100168', '8th', 'Sem 1', 9, 3, 27, 40, 79, 'A'),
+('20252610100169', '8th', 'Sem 1', 9, 3, 29, 47, 88, 'A'),
+('20252610100170', '8th', 'Sem 1', 8, 3, 29, 37, 77, 'A'),
+('20252610100171', '8th', 'Sem 1', 9, 3, 29, 42, 83, 'A'),
+('20252610100172', '8th', 'Sem 1', 10, 3, 32, 38, 83, 'A'),
+('20252610100173', '8th', 'Sem 1', 10, 3, 30, 43, 86, 'A'),
+('20252610100174', '8th', 'Sem 1', 9, 3, 28, 46, 86, 'A'),
+('20252610100175', '8th', 'Sem 1', 8, 3, 27, 41, 79, 'A'),
+('20252610100176', '8th', 'Sem 1', 8, 2, 28, 35, 73, 'A'),
+('20252610100177', '9th', 'Sem 1', 10, 2, 29, 39, 80, 'A'),
+('20252610100178', '9th', 'Sem 1', 10, 2, 30, 41, 83, 'A'),
+('20252610100179', '9th', 'Sem 1', 10, 3, 32, 40, 85, 'A'),
+('20252610100180', '9th', 'Sem 1', 10, 3, 30, 39, 82, 'A'),
+('20252610100181', '9th', 'Sem 1', 10, 3, 32, 44, 89, 'A+'),
+('20252610100182', '9th', 'Sem 1', 9, 3, 30, 39, 81, 'A'),
+('20252610100183', '9th', 'Sem 1', 9, 2, 32, 38, 81, 'A'),
+('20252610100184', '9th', 'Sem 1', 9, 5, 32, 42, 88, 'A'),
+('20252610100185', '9th', 'Sem 1', 8, 2, 30, 44, 84, 'A'),
+('20252610100186', '9th', 'Sem 1', 9, 3, 28, 39, 79, 'A'),
+('20252610100187', '9th', 'Sem 1', 8, 2, 26, 39, 75, 'A'),
+('20252610100188', '9th', 'Sem 1', 8, 2, 32, 37, 79, 'A'),
+('20252610100189', '9th', 'Sem 1', 9, 5, 32, 40, 86, 'A'),
+('20252610100190', '9th', 'Sem 1', 10, 3, 29, 43, 85, 'A'),
+('20252610100191', '9th', 'Sem 1', 9, 3, 28, 41, 81, 'A'),
+('20252610100192', '4th', 'Sem 1', 6, 5, 28, 44, 83, 'A'),
+('20252610100193', '4th', 'Sem 1', 10, 5, 23, 48, 86, 'A'),
+('20252610100194', '4th', 'Sem 1', 10, 3, 26, 46, 85, 'A'),
+('20252610100195', '5th', 'Sem 1', 10, 5, 21, 48, 84, 'A'),
+('20252610100196', '5th', 'Sem 1', 10, 5, 20, 47, 82, 'A'),
+('20252610100200', '6th', 'Sem 1', 9, 5, 27, 42, 83, 'A'),
+('20252610100201', '6th', 'Sem 1', 9, 4, 24, 42, 79, 'A'),
+('20252610100202', '6th', 'Sem 1', 10, 5, 25, 45, 85, 'A'),
+('20252610100203', '6th', 'Sem 1', 9, 5, 23, 41, 78, 'A'),
+('20252610100204', '6th', 'Sem 1', 10, 5, 28, 41, 84, 'A'),
+('20252610100205', '6th', 'Sem 1', 9, 5, 23, 38, 75, 'A'),
+('20252610100206', '6th', 'Sem 1', 9, 5, 25, 43, 82, 'A'),
+('20252610100207', '6th', 'Sem 1', 8, 4, 29, 38, 79, 'A'),
+('20252610100209', '6th', 'Sem 1', 10, 5, 27, 45, 87, 'A'),
+('20252610100210', '6th', 'Sem 1', 10, 5, 28, 44, 87, 'A'),
+('20252610100211', '6th', 'Sem 1', 9, 4, 30, 40, 83, 'A'),
+('20252610100212', '6th', 'Sem 1', 9, 4, 26, 42, 81, 'A'),
+('20252610100213', '6th', 'Sem 1', 10, 5, 26, 45, 86, 'A'),
+('20252610100214', '6th', 'Sem 1', 9, 3, 27, 42, 81, 'A'),
+('20252610100215', '6th', 'Sem 1', 9, 5, 28, 43, 85, 'A'),
+('20252610100217', '7th', 'Sem 1', 8, 5, 27, 45, 85, 'A'),
+('20252610100218', '7th', 'Sem 1', 9, 5, 18, 44, 76, 'A'),
+('20252610100219', '7th', 'Sem 1', 9, 5, 24, 45, 83, 'A'),
+('20252610100220', '7th', 'Sem 1', 10, 5, 29, 47, 91, 'A+'),
+('20252610100222', '7th', 'Sem 1', 10, 2, 28, 41, 81, 'A'),
+('20252610100223', '7th', 'Sem 1', 10, 3, 30, 40, 83, 'A'),
+('20252610100224', '7th', 'Sem 1', 9, 4, 27, 45, 85, 'A'),
+('20252610100225', '7th', 'Sem 1', 9, 2, 25, 46, 82, 'A'),
+('20252610100226', '7th', 'Sem 1', 10, 5, 27, 43, 85, 'A'),
+('20252610100227', '7th', 'Sem 1', 9, 5, 30, 48, 92, 'A+'),
+('20252610100228', '7th', 'Sem 1', 10, 5, 25, 48, 88, 'A'),
+('20252610100229', '7th', 'Sem 1', 9, 3, 29, 46, 87, 'A'),
+('20252610100230', '7th', 'Sem 1', 8, 2, 30, 36, 76, 'A'),
+('20252610100231', '7th', 'Sem 1', 9, 5, 31, 48, 93, 'A+'),
+('20252610100232', '7th', 'Sem 1', 9, 5, 28, 42, 84, 'A'),
+('20252610100233', '7th', 'Sem 1', 9, 5, 28, 44, 86, 'A'),
+('20252610100234', '7th', 'Sem 1', 9, 5, 27, 44, 85, 'A'),
+('20252610100235', '7th', 'Sem 1', 8, 3, 28, 43, 82, 'A'),
+('20252610100236', '7th', 'Sem 1', 10, 5, 33, 49, 97, 'A+'),
+('20252610100238', '7th', 'Sem 1', 10, 5, 32, 48, 95, 'A+'),
+('20252610100240', '7th', 'Sem 1', 10, 5, 31, 46, 92, 'A+'),
+('20252610100241', '7th', 'Sem 1', 9, 2, 27, 35, 73, 'A'),
+('20252610100242', '7th', 'Sem 1', 9, 5, 31, 48, 93, 'A+'),
+('20252610100243', '7th', 'Sem 1', 9, 5, 29, 48, 91, 'A+'),
+('20252610100244', '7th', 'Sem 1', 9, 5, 29, 48, 91, 'A+'),
+('20252610100245', '7th', 'Sem 1', 9, 5, 26, 49, 89, 'A+');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ATGET_School_Names`
+--
+
+CREATE TABLE `ATGET_School_Names` (
+  `School_Names` varchar(100) NOT NULL,
+  `Campus_No` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `ATGET_School_Names`
+--
+
+INSERT INTO `ATGET_School_Names` (`School_Names`, `Campus_No`) VALUES
+('JJEM', 101),
+('JJKM-H', 101),
+('JJKM-P', 101),
+('JD', 101),
+('Sri Renuka', 101),
+('Paramedical', 101),
+('Nursing', 101),
+('PU_Commerce', 101),
+('PU_Arts', 101),
+('PU_Education', 101),
+('PU_Science', 101),
+('SSVS', 201);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ATGET_School_Semisters`
+--
+
+CREATE TABLE `ATGET_School_Semisters` (
+  `Semester_Name` varchar(10) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `ATGET_School_Semisters`
+--
+
+INSERT INTO `ATGET_School_Semisters` (`Semester_Name`) VALUES
+('Sem 1'),
+('Sem 2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ATGET_School_Standards`
+--
+
+CREATE TABLE `ATGET_School_Standards` (
+  `Standard_List` varchar(10) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `ATGET_School_Standards`
+--
+
+INSERT INTO `ATGET_School_Standards` (`Standard_List`) VALUES
+('1st'),
+('2nd'),
+('3rd'),
+('4th'),
+('5th'),
+('6th'),
+('7th'),
+('8th'),
+('9th'),
+('10th'),
+('Other');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ATGET_Students_Details`
+--
+
+CREATE TABLE `ATGET_Students_Details` (
+  `Admission_No` varchar(14) NOT NULL,
+  `Student_Name` varchar(100) NOT NULL,
+  `Parent_Name` varchar(100) NOT NULL,
+  `Contact_No` varchar(15) NOT NULL,
+  `Student_Aadhar_No` varchar(12) NOT NULL,
+  `Student_Address` text NOT NULL,
+  `School_Name` varchar(100) DEFAULT NULL,
+  `Admission_Year` varchar(10) DEFAULT NULL,
+  `Course_Completion_Academic_Year` varchar(10) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `ATGET_Students_Details`
+--
+
+INSERT INTO `ATGET_Students_Details` (`Admission_No`, `Student_Name`, `Parent_Name`, `Contact_No`, `Student_Aadhar_No`, `Student_Address`, `School_Name`, `Admission_Year`, `Course_Completion_Academic_Year`) VALUES
+('20252620100005', 'H INDU', 'S P SARASWATHI', '8150067649', '832875060506', 'NANYAPURE MAIN ROAD NANYAPURE DASAMAPURE \r\nHAGARI BOMMANAHALLI 583212  BELLARY ', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100004', 'H G MAILARA LINGESHWARA', 'HALLER GUDDAPPA', '9483827851', '289105250234', 'NEAR KARIYAMMA TEMPLE BOPPALAPURA HIRE HEGGADAHAL KUDLIGI 583135 VIJAYANAGARA', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100003', 'G MAHEEN TAJ', 'G VALI BASHA', '9901904426', '421207990999', '#00, 1st WARD HANASI, HANASI(P) HAGARI BOMMANAHALLI KUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100002', 'BEEBI AYESHA K', 'MAHAMMAD RIYAJ K ', '8747878302', '869713175820', '#188, HANASI HANASI (P) HAGARI BOMMHANAHALLI KUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100001', 'B BHARATH', ' B VAMESHA', '9741940840', '386220580861', '159/A 3rd 4 S.C. COLONY SASALAVADA HERE HEGGADAHAL KUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100006', 'H SUDARSHAN ', 'H NAVIN KUMAR', '7026236437', '774489859422', '#100, 2nd WARD BANNIKAL BANNIKAL(P)              HAGARI BOMMANAHALLI 583212 VIJAYANAGARA', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100007', 'K SAHANA ', 'K HULIGEMMA', '9902754606', '216098338497', '#00 KALLAHALLI BHIMAPPA ONI BOPPALAPURA HIRE HEGGADAHAL KUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100008', 'M YASHWANTH', 'M SWAMY ', '6361484648', '855499870176', '163 1st WARD BEHIND GOVT SCHOOL HANASI HANASI(P)\r\nHAGARIBOMMANAHALLI KUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100009', 'SINCHANA', 'UMESH NAIK', '7353435043', '202370183972', '# 194 KALLAHALLI THANDA HANASI(P) HAGARIBOMMANAHALLI\r\nKUDLIGI 583135 VIJAYANAGARA\r\n', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100010', 'T ROHITH KUMAR', 'T DEVARAJA', '7483633562', '258110067890', 'BOPALAPURA HIREHEGGADAHAL HIREHEGGADAHAL(P) \r\nKUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100011', 'VINAY ', 'ANJINAPPA', '9483827851', '384657229501', '1st WARD GOPALAPUR HIREGEGGADAHAL \r\nKUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100012', 'A M KOTRESH', 'ROOPA', '9845142389', '553333934747', '#195/2, HANASI HANASI(P) HAGARIBOMMANAHALLI \r\nKUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100013', 'B M NANDISHA', 'B M JAGADISHA', '9901645492', '725917842135', 'BOPALAPURE HIREHEGGADHAL(P) \r\nKUDLIGI 583135 BELLARY\r\n', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100014', 'DHRUTHIK A G', 'AJAY KUMAR', '9738382544', '600162777602', '127 HOUSE NO SASALAVADA HIREHEGGADAHAL \r\nKUDLIGI 583135 BELLARY ', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100015', 'HEMANYA B M ', 'GURU BASAVARAJAIAH B M ', '9535375999', '905921273084', 'BOPPALAPURE HIREHEGGADHAL\r\nKUDLIGI 583135 BELLARY ', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100016', 'K SOFIYA', 'K DADAKHALANDAR', '9686849271', '349896312885', '#00 HANASI HANASI(P) KUDLIGI 583135 VIJAYANAGARA', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100017', 'PRATHIKSHA K A ', 'SHILPA K', '7026650428', '574906621073', 'DASAMAPURA HAGARIBOMMANAHALLI 583212 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100018', 'AKHIL NAYAKA C', 'CHILUGOUD UMESH', '8618574324', '575703557745', 'HOUSE NO 43, ARLI HALLI RAMANAGARA \r\nHAGARIBOMMANAHALLI 583212 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100019', 'D S NAGARAJ', 'D S SHIDRAMESH', '9591111124', '561492966983', 'HOUSE NO 10 GANTERA STREET HIRE HEGGADAHAL \r\nKUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100020', 'DINESH D S ', 'D S KARIBASAPPA', '9964956882', '634942342009', 'HOUSE NO 173, NEAR ESHWARA TEMPLE HIRESEGGADHAL\r\nKUDLIGI 583135 BELLARY ', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100021', 'K MALLESHA', 'K PAKKIRASWAMY', '9901880543', '502622397961', '#234, 1st WARD NEAR GOVT SCHOOL HANASI(P) HAGARIBOMMANAHALLI KUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100022', 'MANOJ R', 'REVANNA', '6363257833', '249600644086', 'NIDUGURTHI NIDUGURTHI SUNDUR \r\nBANDRI 583124 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100023', 'K RUKMINI', 'RATNAMMA', '6361125829', '293143812569', '#46, HANASI HANASI(P) HAGARIBOMMANAHALLI\r\nKUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100024', 'K SPANDHANA', 'HONNRAMMA K', '9611270193', '824976402339', '#57/2 HANASI HANASI(P) HAGARIBOMMANAHALLI\r\nKUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100025', 'LIKHITHA', 'SHIVAKUMAR', '8971585553', '268587639693', 'NO.335 MADAVARA DASANAPURA HOBALI MADAVARA\r\nBENGALUR NELAMANGALA 562123', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100026', 'V YASHODHA', 'V NEELYA NAIK', '9663205064', '968662573567', '#138, NEAR SAVALAL TEMPEL, KALLAHALLI THANDA KALLAHALLI KUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100027', 'B PRAJWAL', 'B VAMESHA', '9741940840', '489698082640', 'SASALAVADA HIREHEGGADAHAL \r\nKUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100028', 'B SABA FIRDOUSE', 'MEHATAJ T', '9901508878', '600929593723', '1st WARD NEAR HULIGEMMA TEMPLE HANASI \r\nHAGARIBOMMANAHALLI KUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100029', 'DHAVANA HEGADE', 'VASANTH KUMAR HEGADE', '9110862167', '590462326876', 'BENNIKALLU BENNIKALLU HAGARIBOMMANAHALLI 583212 \r\nBELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100030', 'E AJJAYYA', 'KARIBASAPPA', '9964248112', '836334394808', 'HIREHEGGADAHAL HIREHEGGADAHAL(P)\r\nKUDLIGI 583135 BELLARY\r\n', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100031', 'K PANDURANGA', 'K ASHOKA', '8550808961', '865858034143', 'HOUSE NO 176, 1st WARD BEHIND MAZID HANASI\r\nHAGARIBOMMANAHALLI KUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100032', 'MAHEEN TAJ K', 'PHAIROJ BEGAM', '8747878302', '570501886794', '#188, HANASI HANASI(P) HAGARIBOMMANAHALLI\r\nKUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100033', 'MALGI SRUJAN', 'MALGI MAILAMMA', '7795882241', '904596008903', 'NANYAPURE DASAMAPURA HAGARIBOMMANAHALLI 583212 \r\nBELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100034', 'PAVAN KUMAR H', 'NAVEEN KUMAR H ', '7026236437', '870537809633', '#100 BENNIKALLU BENNIKALLU(P) \r\nHAGARIBOMMANAHALLI 583212 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100035', 'K PRANITH', 'K PAKKIRASWAMY', '9901880543', '215288920502', '#234, 1st WARD NEAR GOVT SCHOOL HANASI\r\nHAGARIBOMMANAHALLI KUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100036', 'SHIFAN T', 'SHABBIR T', '9731744026', '565714965525', 'HANASI HANASI(P) KUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100037', 'U SHASHANKA', 'ANITHA U', '6360335730', '236659124170', '#295 BANNIKALLU HAGARIBOMMANAHALLI 583212 \r\nBELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100038', 'K SAGAR', 'K RAVANNA', '6363257833', '609791177030', 'NIDUGURTHI NIDUGURTHI(P) BANDRI 583124\r\nSUNDUR BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100039', 'I DEEKSHA ', 'INALLI UMADEVI', '7090295912', '238429379416', 'GOVT SCHOOL NEAR NANYAPURE HOSAKERI \r\nHAGARIBOMMANAHALLI 583212 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100040', 'B AVINASH', 'GANGADHARA', '9980710550', '918711942322', 'NANYAPURA DASAMAPURA \r\nHAGARIBOMMANAHALLI 583212 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100041', 'B JAGADISH', 'BHARAMAMMA', '8861096257', '456913018408', 'NANYAPURA DASAMAPURA \r\nHAGARIBOMMANAHALLI 583212 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100042', 'B M SATHISHA', 'B M YOGENDRAIAH', '9900982815', '640514531692', 'NEAR DURUGAMMA TEMPLE BOPPALAPURA HIREHEGGADAHAL\r\nKUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100043', 'K PRAJWALA ', 'K SURESH', '7760495636', '697514685544', '#1049, BENNIKALLI BENNIKALLI(P) \r\nHAGARIBOMMANAHALLI 583212 BELLARY ', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100044', 'MSNOJ GOUDA G ', 'G NINGAPPA', '9741966960', '890776435378', '137,KALLAHALLI KALLAHALLI HANASI\r\nHAGARIBOMMANAHALLI 583212 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100045', 'N ADARSH', 'N CHANDRAPPA', '9741705066', '531137802061', '# 132, HANASI HANASI(P) \r\nHAGARIBOMMANAHALLI 583212 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100046', 'PRABHAS J', 'KOTRESHA', '9008392551', '312009695657', '#18, 2nd WARD KALLAHALLI HANASI HANASI(P)\r\nHAGARIBOMMANAHALLI KUDLIGHI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100047', 'S GOUTHAM', 'S LATHA ', '9743545130', '211462807657', '#38, KALLAHALLI HAGARIBOMMANAHALLI \r\nKUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100048', 'MAHAMMAD NUMAN T', 'SHABBIR T', '9731744026', '544352725340', 'HANASI \r\nKUDLIGI 583135 BELLARY ', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100049', 'YASHWANTH B M ', 'NAGARAJ', '9008366602', '640958205328', '1st WARD NEAR ANJINEYYA TEMPLE HIREKEIYAGINA HALLI \r\nBANDRI 583124 SUNDUR BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100050', 'KARIYAJJA', 'MUGAPPA M', '9632874286', '580357959946', '#30, KALLAHALLI HANASI(P) HAGARIBOMMANAHALLI\r\nKUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100051', 'AVINASH NANDI', 'NANDI PRAKASHA', '7996352329', '707924300931', '#42, NANYAPURA NEAR BUS STAND DASAMAPURA \r\nHAGARIBOMMANAHALLI 583212 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100052', 'K BHAVANI', 'KUMBARA TIMMAPPA', '8197712061', '640280006209', 'DASAMAPURA DASAMAPURA(P) HAGARIBOMMANAHALLI 583212\r\nBELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100053', 'ENNI THIRUPATHI', 'ENNI NAGARAJA', '9353608680', '666385324449', 'PILLOBANAHALLI UPPARAGATTA \r\nHAGARIBOMMANAHALLI 583212 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100054', 'H DHANUSH', 'H BARAMAPPA', '9035517392', '254874519752', '#53, KALLAHALLI HANASI(P) HAGARIBOMMANHALLI\r\nKUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100055', 'SINCHANA H S ', 'S PARASHURAMA', '9591530543', '751996052582', 'HOSAKERI NANYAPURA DASAMAPURA(P)\r\nHAGARIBOMMANAHALLI 583212 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100056', 'K RAKESH', 'K BASAVARAJA', '7353173164', '415229679346', 'SEDBHAVI STREET SASALAVADA HIREGEGGADAHAL \r\nKUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100057', 'SANGEETHA K ', 'K SURESHA', '7349205093', '495963640730', 'JANATHA COLONY BENNIKAL BENNIKALLU(P) \r\nHAGARIBOMMANAHALLI 583212 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100058', 'K SHARATH', 'K HEMESH', '8792418949', '387455199121', '#33, KALLAHALLI HANASI(P) HAGARIBOMMANAHALLI\r\nKUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100059', 'MISBA', 'MOHIDDIN T ', '9731063745', '863661611404', '#282, 3rd WARD NEAR MAZID HANASI HAGARIBOMMANAHALLI\r\nKUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100060', 'PAVITRA', 'NINGARAJA', '9901495779', '703233286123', 'HANASI HANASI(P) HAGARIBOMMANAHALLI \r\nKUDLIGI 583135 BELLARY ', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100061', 'PREMA', 'B M YOGENDRAIAH', '9900982815', '863874863757', '#40, NEAR DURUGAMMA TEMPEL BOPPALAPURA HIREHEGGADAHAL\r\nKUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100062', 'SURESH M', 'BELADEREPPA', '8431740709', '254479520207', 'PILLOBANAHALLI UPPARAGATTA \r\nHAGARIBOMMANAHALLI 583212 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100063', 'VANDANA', 'GONI BASAPPA', '9611270193', '660627743392', '2nd WARD HANASI HANASI(P) HAGARIBOMMANAHALLI \r\nKUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100064', 'B SUHANA', 'IBRAHIM', '8151891344', '956971713356', 'HANASI HAGARIBOMMANAHALLI\r\nKUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100065', 'H SANJEEVA', 'H ANJINAPPA', '9901317840', '642094266510', 'KALLAHALLI HANASI\r\nKUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100066', 'K KISHORA', 'K VEENA', '7483952262', '865061929485', '#1/47, BENNIKALLU BENNIKALLU(P)\r\nHAGARIBOMMANAHALLI 583212 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100067', 'K M SANJAY', 'K MANJUNATHA', '9535379820', '298531044580', 'KALLIHALLI HANASI HAGARIBOMMANAHALLI\r\nKUDLIGI 583135 BELLARY ', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100068', 'M S TANUSHREE', 'S MEGHA NAIK', '8105552845', '207275172704', 'KALLAHALLI THANDA HANASI HAGARIBOMMANAHALLI\r\nKUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100069', 'MAHAMMAD NAVEED T', 'SHABBIR T', '9731744026', '936921877562', 'HANASI KUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100070', 'T HANUMATHA', 'T NAGARAJA', '9731294315', '861312839547', 'KALLAHALLI HANASI HAGARIBOMMANAHALLI \r\nKUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100071', 'U PRAJWAL', 'U ANITHA', '6360335730', '594860605301', '#295 BENNIKALLUE HAGARIBOMMANAHALLI 583212 \r\nBELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100072', 'V M DIVYA BAI', 'V R MANJU NAIK', '9663682935', '369094078491', 'KALLAHALLI THANDA HANASI HAGARIBOMMANAHALLI \r\nKUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100073', 'DEEPA ', 'KALAMMA V', '7259329775', '841372504909', '1st WARD HOSAKERI ROAD HANASI HAGARIBOMMANAHALLI \r\nKUDLIGI 583212 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100074', 'GOWRI', 'MAYAPPA', '7353470606', '525318657772', 'DASAHAMAPURA HAGARIBOMMANAHALLI 583212 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100075', 'KUMBARA BASAVARAJA', 'KUMBARA GONEPPA', '6360613101', '702466268021', '#00, DASHAMAPURA DASHAMAPURA(P)       HAGARIBOMMANAHALLI 583212 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100076', 'M DARSHAN', 'M PARASHURAMA', '9611069213', '853126106936', 'DASHAMAPURA HAGARIBOMMANAHALLI 583212 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100077', 'M RANJITHA', 'M MALLESHA', '9741244649', '544477154799', 'DASHAMAPURE MAIN TOAD DASHAMAPURE \r\nHAGARIBOMMANAHALLI 583212 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252620100078', 'U BHARGAVI', 'U PAMPAPATHI', '9740589865', '499235258302', '#01, MAIN ROAD KANIVINAYAKANA HALLI KALLAHALLI\r\nHANASI KUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252610100001', 'SHALINI', 'KALLESH', '8105469954', '712650469398', 'RAMANAGARA HARARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', '2026-05'),
+('20252610100002', 'U PALLAVI', 'B DADAPEER', '7676962559', '859633276518', '#31, SONIYAGANDI NAGARA HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100003', 'B SUMAYYA BANU', 'B AMJADA', '9008330987', '297917351435', 'KUDLIGI ROAD ARALIHALLI HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100004', 'H BHARTHA ', 'PRABHUDEVA', '8496973692', '523254415313', 'HUNASIKATTI ANAJIIGERI, HARAPANAHALLI 583125 VIJAYANAGARA', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100005', 'BINDUSHRI R ', 'R RANGAPPA ', '8884535459', '954451681245', 'CHINTRAPALLI CHINTRAPLLI(P) HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100006', 'GIRIDHARA', 'PRAKASH G M', '9886195892', '933049988435', 'KUDLIGI ROAD NEAR CHRUCH RAMANAGARA HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100007', 'I ARCHANA ', 'I SHIVAPUTRAPPA', '7676567573', '681883312970', 'HAGARIKYADIGIHALLI BACHIGONDANAHALLI(P) HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100008', 'JOYA ', 'BANDI DADAPEER', '9880231458', '554558125594', 'JALI NAGER BEHIND URDI SCHOOL HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100009', 'NIRIKSHA K M ', 'VEERAYYA K M ', '8971467983', '205063227162', 'VALLABAPURE CHINTRAPALLI(P) HAGRIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100010', 'T ARZOO', 'T AMAN', '8747861506', '248790017187', 'KOTTUR ROAD NEAR RAILWAY GATE. HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100011', 'T MAHAMMAD FARHAN', 'T JAMSIRA', '9980505470', '294309701025', 'ISLAMPETE HADAGALLI HUNINAHADAGALLI 583219 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100012', 'TULISI ', 'K ASHOKA', '9902004535', '932477429563', 'KORAVARA STREET VEGITABLE MARKET BASAVESHWARA BAZER \r\nHAGARIBOMMANAHALLI 583212 BELLARY ', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100013', 'H SAGER ', 'MARUTHI HALAGAPURA', '9902836496', '730693736274', 'KURUUBARA STREET NEAR URAMMA TEMPLE PINJARAGEGGADEHAL HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100014', 'H FARVAZ ', 'H NASEEMA', '9686851606', '717058135758', 'JALI NAGARA BEHIND URDU SCHOOL HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100015', 'K MUSHFIRA', 'RAHA SAB', '9945453317', '457639944388', 'JALI NAGARA HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100016', 'PRARTHANA K ', 'RAGHAVENDRA K ', '7353510539', '851033168258', 'MUTHUKURU RAMESWARA BANDI TELEGOLI HAGARIBOMMANAHALLI 583224 VIJAYANAGARA', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100017', 'SATHWIKA', 'K ANNAPPA ', '7760385057', '654360254445', 'BHOVI COLONY HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100018', 'NIHARIKA', 'K ANNAPPA ', '7760385057', '591110648820', 'BHOVI COLONY HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100019', 'P B KRUSHNAPRASAD ', 'BULLAPPA', '9880981230', '771279781466', 'GOLLARA ONI HALE HAGARIBOMMANAHALLI 2nd WARD HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100020', 'A RITHIKA ', 'L P ANANDA NAIK ', '6362046686', '409606751432', 'ANEKAL THANDA ANEKAL(P) HAGARIBOMMANAHALLI 583212 BELLARY ', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100021', 'ADITHI', 'MALLIKARJUNA', '7996236512', '384501730409', 'K K B M HAGARIBOMMANAHALLI HAGARIBOMMANAHALLI 583212 BELLARY ', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100022', 'AYEYA K H', 'MANJULA', '9448779150', '724550934236', 'KOTTUR ASTE CHINTRAPPLI NEAR URAMMA GUDI HAGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100023', 'B NOOR AHAMMAD', 'B BABU SABU', '9880363852', '307114238567', 'ARALIHALLI KURUDAGADDI HAGARIBOMMANAHALLI 583212 BALLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100024', 'DRUVA YOGESHA HOTTERA', 'YOGESHWARA', '9740600464', '741793038538', 'BASAVESWARA TEMPLE NEAR HAGARIKYDIGIHALLI BACHIGONDANAHALLI (P) HAGARIBOMMANAHALLI 583212 BELLARY ', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100025', 'GANESH BADIGERA ', 'IRANNA BADIGERA', '9844095087', '559637227270', 'BASAVESHWARA TEMPLE NEAR HAGARIKYDIGIHALLI BACHIGONDANAHALLI(P) HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100026', 'I VACHANA', 'I SHIVAPUTRAPPA', '8494820804', '741807375436', 'HOUSEING BOARD COLONY RAMANAGARA HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100027', 'K M VARSHINI', 'MARI KOTRAYYA', '8197037040', '887916777705', 'VALLABAPURA CHINTRAPALLI(P) HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100028', 'L UDAYA ', 'RAVI ', '9591836951', '838585855004', 'NAKRAL THANDA ANKASAMUDRA(P) HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100029', 'LINGARAJA ', 'BARIKARA GUDUDAYYA', '9945545066', '622593697985', 'UPPARAGATTI HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100030', 'MADAN HUGARA', 'MAHESHA HUGARA', '9900263228', '900845212459', 'HAGARIBOMMANAHALLI HAGARIBOMMANAHALLI(P) HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100031', 'MAHAMMAD GOUS', 'H PEER SAB', '7204903780', '655114350711', '22th WARD ARALIHALLI HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100032', 'NOORUL UDA', 'A RUKSANA BANU', '9916711237', '917473314822', 'JALI NAGAR NEAR URDU SCHOOL HAGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100033', 'ROHINI', 'RAVI', '9591836951', '752194723741', 'NAKARL THANDA ANKASAMUDRA(P) HAGARIBOMMANAHALLI 583212  BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100034', 'S SAMIYA ', 'S SYED SHANAWAZ', '9964627860', '218352868113', 'KUDLIGI ROAD SONIYAGANDI NAGAR HAGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100035', 'S SAMIYA ', 'S SYED SHANAWAZ', '9964627860', '218352868113', 'KUDLIGI ROAD SONIYAGANDI NAGAR HAGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100036', 'SAHANA A ', 'BASAVARAJA ', '9986664078', '302539245381', 'ADAVI ANANDADEVANAHALI BACHIGONDANAHALLI(P) HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100037', 'UMME MASFA', 'UMMR FAYAZ', '9880688724', '851763970230', 'MEHABOOB NAGARA NEAR MADEENA MASIDI HAGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100038', 'V PUNITH KUMAR ', 'V YALLAPPA', '9591450960', '903946873051', 'BHOVI COLONY CHINTRAPALLY(P) HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100039', 'M SUBAN', 'RAHAMATH ULLA', '8497004538', '935362553174', 'JALI NAGARA NEAR URDU SCHOOL HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100040', 'NAYANA G ', 'VEERESHA G', '7975096855', '895579779108', 'UPPARGATTI HAGARIBOMMANAHLLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100041', 'D DAYANANDA ', 'D VENKATESH', '9632485825', '385363826282', 'J J NAGARA OLD HAGARIBOMMANAHALLI HAGARIBOMMANHALLI583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100042', 'AYSHA', 'T JAHANGIR BHASHA', '9008319324', '294080409079', 'BHOVI COLONY HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100043', 'B KAVANA', 'B VEERESHA', '9035115343', '836053024924', 'KEB ROAD RAMANAGARA UPPARA ONI HAGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100044', 'BHARATH KUMARA ', 'RAGHAVENDARA', '9900375327', '513900940088', '14th WARD SONIYAGANDI NAGARA HAGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100045', 'CHANDANA', 'BARIKARA GUDUDAYYA ', '9945545066', '242755465895', 'UPPARAGATTI HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100046', 'CHETHANA GOWDA P N', 'PRAKASH GOWDA P N ', '9900757488', '618808212019', 'RAMANAGARA HAGARIBOMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100047', 'G KRUTHIKA ', 'GURURAJA V', '8951863876', '667785778721', 'MILIARY BAYALU RAMANAGARA HAGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100048', 'GOURI SANKAR S', 'SANAL KUMAR K U', '7034188133', '865872751203', 'KALLOORATHU HOUSE MEENADOM(P) KERALA 686516 KOTTAYAM', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100049', 'H M SNEHA', 'H M VIVEKANANDASWAMY', '9901197543', '231078700146', '16th WARD K V O R COLONY HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100050', 'K BHOOMIKA', 'K KOTRESH', '8970075933', '283657970739', '18th WARD NETHAJI ROAD BEHIND HARSHA LODGE HAGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100051', 'K GANESH ', 'JAMBUNATH', '9686170727', '629284512846', 'ADAVI ANANDADEVANAHALLI BACHIGONDANAHALLI(P) HAGARIBOMMANAHALLI 583212 BELLARY ', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100052', 'K SHANKAR', 'K ASHOKA', '9902004535', '541191007549', 'KORAVARA STREET VEGITABLE MARKET BASAVESHWARA BAZAR HAGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100053', 'K SHIVARAJ', 'CHANDRASHEKARA K', '9110695036', '352593086513', 'NEAR KUDLIGI ROAD ARALIHALLI HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100054', 'L M GIRIMALLA', 'L M HONNURA', '9972392455', '704835003328', '3rd WARD LAKKI MANE STREET DEVALAPURA HADAGALI 583219 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100055', 'M MALLAIAH', 'DURUGAPPA', '7676153812', '583876714612', 'NEAR URAMMA TEMPLE PINJARHEGDAL PINJARHEGDAL(P) HAGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100056', 'M TANVI', 'M SHIVAMURTHY', '9900806446', '316865680494', 'SONIYAGANDI NAGARA 14th WARD HAGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100057', 'RONADA BHOOMIKA', 'JAYAPPA R', '8151924275', '711243289711', 'ADAVI ANANDADEVANAHALLI BACHIGONDANAHALLI (P) HAGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100058', 'SPOORTHY', 'KOTRESH', '8970870767', '459276353499', '14th WARD SONIYAGANDI NAGARA HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100059', 'SOMASHEKHARA', 'K NAGARAJA', '9741907253', '437362122387', '15th WARD SOMESHWARA NAGARA K V O R COLONY SAYIBABA GUDI HATTIRA HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100060', 'THAJUDEEN P ', 'P RAJABAKSHI', '6363707082', '658348767011', 'SARADARA PATEL ROAD RAMANAGARA ANEKAL(P) HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100061', 'VEERESHA ', 'M G ERANNA', '8197078754', '700578615297', 'LINGAYATHARA ONI HAREGONDANAHALLI HAGARIOBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100062', 'H JEEVITHA ', 'H PRABHUDEVA', '8722489917', '927511719127', 'HUNENI KATTI ANAJIGERE(P) HARAPANAHALLI 583125 DAVANGERE', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100063', 'VENKATESHA P', 'NAGARAJA', '9945101029', '412752439228', 'J J NAGARA OLD HAGARIBOMMANAHALLI HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100064', 'P YASHAVANTHA ', 'JAGADEESH', '9731293996', '884472345482', 'ARALIHALLI NEAR HULIGEMMA TEMPLE HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252620100079', 'H K MANDARA', 'H KOTRESH', '9964047556', '735747008379', 'KALLAHALLI HANASI (P) HAGARIBOMMANAHALLI KUDLIGI 583135 BELLARY', 'SSVS', '2025-26', 'ACTIVE'),
+('20252610100065', 'A NAWAZ', 'A RAJU', '9916711237', '738261856403', '2nd WARD NEAR URDU SCHOOL JALI NAGARA \r\nHAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100066', 'B AJMEER ', 'B BABU SAB', '9880363852', '779585253474', 'ARLIHALLI KUDLIGI ROAD HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100067', 'CHAHAT ', 'ANWAR BASHA', '9632407520', '323008069617', '81 CAR STREET OPPOSITE RAMANAGARA GOVT SCHOOL HAGARIBOMMANAHALLI HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100068', 'DIKSHITH KOULULURU', 'K RAGHAVENDRA', '7353510539', '913244940113', 'BEHIND ANJANEYA TEMPLE HOLEMUTHKUR TELUGOLI(P) HAGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100069', 'H ULLASA ', 'H GONIBASAPPA ', '8105006063', '587938914448', 'KOTTURU ROAD CHINTRAPALLI HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100070', 'I RACHANA', 'I SHIVAPUTHRAPPA', '8494820804', '923982405458', 'HOUSING BOARD COLONY RAMANAGARA HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100071', 'K M BRUNDA ', 'K MRUTHYUNJAYA ', '7406102599', '563517505063', 'MILITARI BAYALU RAMANAGARA HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100072', 'K SINDU ', 'K SHIVARAJA ', '9632023648', '695798842616', 'DASAMAPURA DASAMAPURA(P) HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100073', 'MEGAH', 'BARIKARA GUDUDAYYA', '9945545066', '952981444281', 'UPPARAGATTI UPPARAGATTI (P) HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100074', 'MOHAMMAD MAZHAR A KERUR', 'ABDUL ZABBAR N KERUR', '9902225686', '254204967686', 'HOUSING BOARD COLONY KUDLIGI (P)\r\nKUDLIGI 583135 VIJAYANAGARA', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100075', 'NASTAHEEN ', 'UMAR FAYAZ ', '9880688729', '425100330053', 'MEHABOOB NAGARA MADINA MASIDI HATTIRA HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100076', 'PRATHAM V ', 'V KUMARASWAMY', '9538454050', '669966232566', 'BHOVI COLONY HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100077', 'RAHEENA', 'CHAND BASHA', '7892268448', '277859876376', 'SONIYAGANDI NAGARA HAGARIBOMMANAHALLI-583212 BALLARI', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100078', 'M S RAJENDRA', 'S B MAHESHA', '9741771191', '399242279958', 'GUNDAGATHI GUNDAGATHI DAVANAGERE 583137', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100079', 'SUHALIYA H ', 'H PIR SAB', '9164111404', '475884282926', '77 KURADAGADDI  HAGARIBOMMANHALLI 583212 BELLARY ', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100080', 'T MUSKAN', 'T MOHAMED YUNUS', '9886851981', '881751188510', 'BYPASS ROAD JAALI NAGARA B D O OFFICE OPPOSITE HGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100081', 'RIHAN', 'SAJEED ', '8722099964', '486911708287', 'HOUSE NO 25A 3rd WARD JALI NAGARA HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100082', 'M NAYANA', 'M MADHU', '9886346529', '363723338655', 'ARALIHALLI KURUDAGADDI HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100083', 'PRAGNA SWAGI', 'SHANKARANDA SWAGI', '9886968103', '501410356419', 'BEHIND BANASHANKARI TEMPLE NEKAR COLONY OLD HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100084', 'A T ABHIJITH', 'ENNE MALLAPPA ', '9008099751', '404385738396', '#129, PILLOBANAHALLI UPPARAGATTI HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100085', 'ARIF', 'AKBAR BASHA', '9964161682', '727127674108', '#90, JAKKUR LAYOUT DODDAMMA TEMPLE BANGALORE JAKKUR 560064 ', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100086', 'B APSAR ', 'B INTIYAZ', '8197840755', '702073688957', 'HOUSE NO 47 SONIYA GANDI NAGARA HAGARIOBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100087', 'PAVANA KUMKARA G ', 'G UMESH ', '9148810137', '453634705487', 'NEAR CHARCH RAMANAGARA HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100088', 'GONDABALU SANJIVINI ', 'GONDABALU BASAVARAJA', '9449469504', '567726045305', 'ANKASAMUDRA HAGARIBOMMANAHALLI 583212 BELLARY ', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100089', 'GOPAL KRISHNA', 'KAILAS', '9164824024', '934643978889', 'BASAVESHWARA BAZAR NEAR PETROL BUNK HAGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100090', 'H D KHASIMBEE', 'D VALIBASHA', '9663552628', '390858592998', '#119, BHOVI COLONY RAM RAHIM NAGARA HAGARIBOMMANHALLI 583212 BELLARY ', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100091', 'B KIRAN KUMAR', 'B YAMANURA SWAMY ', '9845212674', '554826334083', 'DASAMAPURA HAGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100092', 'H HARSHITHA', 'H HANUMANTHAPPA ', '9164486663', '211102502011', '154/B, BEHIND APMC HAGARIBOMMANAHALLI 583212 BELLARY ', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100093', 'K GURUBASAVARAJA ', 'K KOTRAGOWDA ', '9008476388', '456214511512', 'ADAVI ANDNDADEVANAHALLI BACHIGONDANAHALLI HAGARIBOMMANHALLI 583212 BELLARY ', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100094', 'K VIJAYA ', 'K MOULALI ', '6362218678', '788344433243', 'HOUSE NO 19 SONIYA GANDI NAGARA KUDLIGI ROAD HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100095', 'KOTRESH R B ', 'R B MANJUNATHA', '8970770484', '310109584554', '22, NEAR BASAVESWARA TEMPLE ANANDADEVANAHALLI ADAVI BACHIGONDANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100096', 'M MATTURAJA ', 'RAGAVENDRA ', '9900375327', '583511216338', '14th WARD SONIYA GANDI NAGARA HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100097', 'SAHANA M ', 'KOTRESH M', '8970103913', '280856628419', '#178, ULAVATHI HAGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100098', 'P KARTHIK ', 'P BASAVARAJ', '9901538513', '994852783260', 'DASAMAPURA DASAMAPURA(P) HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100099', 'SAMARTH K ', 'BASAVARAJA K', '9986664078', '753010010741', '#76, ADAVI ANANDEVANAHALLI SCHOOL MUNBAGA BACHIGONDANAHALLI HAGARIBOMMANHALLI 583212 BELLARY ', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100100', 'SADIA FIRDOS', 'ABDUL GAFAR', '9008323110', '786008883660', 'KUDLIGI ROAD ARALAHALLI JANATHA COLONY HAGARIBOMMANHALLI 583212 BELLARY ', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100101', 'T SALMAN ', 'T MEHEBOOB BASHA ', '9535307867', '541678995882', 'H S 25/A BYPASS JALI NAGARA B D O OFFICE OPPOSITE OLD HAGARIBOMMANHALLI HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100102', 'V AKSHAYA ', 'RAVI CHANDRA ', '9019037292', '342585490185', 'BHOVI COLONY NEAR B S N L TAVAR HAGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100103', 'K TASNIYA TAZ', 'K IMTHIYAZ', '9886907446', '881924510529', 'MAHABUB NAGARA NEAR MADINA MASIDI HAGARIBOMMANAHLLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100104', 'AMRUTHA H M ', 'KOTRESHA H M', '9663029916', '539057533786', 'ANANDADEVANAHALLI BACHIGONDANAHALLI HAGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100105', 'MUNSIRA ', 'T JAGIRA BASHA', '9008319324', '377250699793', 'BHOVI COLONY HAGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100106', 'ARSHIA THABASUM', 'KOUSAR BANU ', '9986119639', '592176256253', '00 KRISHNDEVARAYA ROAD RAMANAGARA NEAR MAZID HAGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100107', 'R ASHIWINI', 'R SHANTHA KUMAR ', '8151062614', '565351461597', 'ADAVI ANANDADEVANAHALLI BACHIGONDANAHALLI HAGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100108', 'TANUSHRI B ', 'ASHOK ', '9916761405', '510724557555', '#00, KOTTURU ROAD RAMANAGARA HAGARIBOMMANHALLI 583212\r\nBELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100109', 'C AYISHA SADEEKHA', 'ARIFULLA C ', '9945814388', '662493340205', 'HOUSE NO 9-135 BHOVI COLONY NEAR PETROL BUNK HAGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100110', 'H HAMEEDA ', 'H JAHANGIR SAB', '9980720217', '205727555959', 'JANATHA COLONY ARALIHALLI HAGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100111', 'H TAHEER MAINUDDIN ', 'MOHAMMAD HANEEF', '9901197458', '335996424975', 'BHOVI COLONY HAGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100112', 'K C AKSHATHA', 'GONEBASAPPA ', '7899044237', '998295803485', 'HANUMANAHALLI VYASANAKERI(P) MARIYAMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100113', 'K KHADAR VALI ', 'SAHIR BANU K ', '9008332310', '956090991326', 'HOUSE NO 410 WARD NO 1 ARALIHALLI HAGARIBOMMANAHLLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100114', 'NOOR KASIM ', 'B BABU SAB', '9880363852', '642261509836', 'HOUSE NO 1-170 ARALIHALLI KUDLIGI ROAD HAGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100115', 'PAVANI ', 'VENKATESH', '8861433499', '905970818478', 'HOUSE NO 415 1st WARD NEAR HULIGEMMA TEMPLE ARALIHALLI KURADAGADDI HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100116', 'S HARSHVARDHAN ', 'E SHRINIVASA', '9739247396', '896525315153', 'HOUSE NO 5 SONIYA GANDI NAGARA HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100117', 'B SINCHANA ', 'NAGARAJA ', '9591277916', '356115491668', 'ARALIHALLI NEAR PADMAVATHI RICE MILL HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100118', 'SHETRU AKASHA ', 'JAGADISHA ', '9632772307', '749854513624', 'ANKASAMUDRA HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100119', 'SINDHU H S ', 'SURESHA', '8497040602', '876650847359', 'URAMMANA TEMPLE NEAR ADAVI ANANDEVANHALLI BACHIGONADANAHALLI HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100120', 'U SOUMYA ', 'B DADAPEER ', '7676962559', '894642589273', '#31, SONIYA GANDI NAGARA HAGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100121', 'T SAMARTHA ', 'T PRAKASH', '9535435327', '925846640994', 'OPPOSITE MASIDI ARALIHALLI HAGARIBOMMANAHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100122', 'USHA K A ', 'ANJINAPPA ', '9901283318', '466838375821', '64, ADAVI ANANDEVANAHALLI BACHIGONDANAHALLI HAGARIBOMMANHALLI 583212 BELLARY', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100123', 'VARALAKSHMI ADISHETTER', 'MAHADEVAPPA ', '7483095681', '449190528054', 'KANDAKUR KOPPAL KOPPAL 583277', 'JJEM', '2025-26', 'ACTIVE'),
+('20252610100124', 'AMRUTHA S ', 'SOMLANAIK ', '9902407690', '921113005616', 'BHANYANA THANDA KALVI WEST BELLARY 583214 VIJAYANAGARA', 'JD', '2025-26', 'ACTIVE'),
+('20252610100125', 'ASHWINI', 'MUKESHA NAIK', '9535679598', '768420740282', 'VYASAPURA HAMPAPATANA MARIYAMMANAHAHALLI 583212 BELLARY ', 'JD', '2025-26', 'ACTIVE'),
+('20252610100126', 'B BHAVANA', 'B NAGENDARAPPA ', '8150834542', '662012070845', '#39 HOSAHALLI MAGALA BELLARY 583216', 'JD', '2025-26', 'ACTIVE'),
+('20252610100127', 'H V SONUSHREE', 'H V JAMADAGNI', '9880572486', '472419678750', '#260, 9th WARD BHOVI COLONY HAGARIBOMMANHALLI 583212 BELLARY ', 'JD', '2025-26', 'ACTIVE'),
+('20252610100128', 'H VANDANA ', 'H JAYAPPA', '9900280557', '510036470816', 'KALLAHALLI HANASI HAGARIBOMMANAHALLI KUDLIGI 583135 BELLARY ', 'JD', '2025-26', 'ACTIVE'),
+('20252610100129', 'KEERTHI K ', 'K LAKSHMI', '9591408502', '703619301756', 'VARADAPURA MAREBBIHAL HAGARIBOMMANAHALLI 583212 BELLARY ', 'JD', '2025-26', 'ACTIVE'),
+('20252610100130', 'KIRTHI BAI ', 'LIMBYA NAIK', '6362739763', '313190493718', 'NEAR RANGA MANDIRA TALA BASAPURA THANDA CHILAKANAHATTI MARIYAMMANAHALLI 583222 HOSPET', 'JD', '2025-26', 'ACTIVE'),
+('20252610100131', 'KIRTHANA H ', 'VEERESHA H ', '9035912104', '988024405504', '44 6th WARD KATRAHALLIYAVARA ONI UTTANGI HADAGALI 583219 VIJAYANAGARA  ', 'JD', '2025-26', 'ACTIVE'),
+('20252610100132', 'POOJA ', 'BUDDAPPA ', '8904191963', '421444706708', '7/4/353/1 DEVARAJ ARAS COLONY KOPPLA KOPPLA 583231', 'JD', '2025-26', 'ACTIVE'),
+('20252610100133', 'R BRUNDA ', 'R ERAPPA ', '9743207013', '824905843143', 'ADAVI ANANDAVEVANAHALLI BACHIGONDANAHALLI(P) HAGARIBOMMANHALLI 583212 BELLARY', 'JD', '2025-26', 'ACTIVE'),
+('20252610100134', 'AFRIN', 'SIKANDAR', '9900752119', '703334444262', 'ARALAHALLI JANATHA COLONY HAGARIBOMMANAHALLI 583212 BELLARY', 'JD', '2025-26', 'ACTIVE'),
+('20252610100135', 'C CHAITRA ', 'C PARASHURAMA ', '9535347911', '878065089779', 'BANDIHALLI MUTHUKUR CHINTRAPALLI (P) HAGARIBOMMANAHALLI 583212 BELLARY', 'JD', '2025-26', 'ACTIVE'),
+('20252610100136', 'H S DURGAMMA ', 'H S HAVALAPPA ', '7090210846', '571040900843', 'HOSAKERI DASAMAPURA (P) HAGARIBOMMANAHALLI 583212 BELLARY', 'JD', '2025-26', 'ACTIVE'),
+('20252610100137', 'H POORNIMA ', 'PARUSHURAMAPPA ', '8884637624', '741576008006', 'KURUDAGADDI NEAR MAREMMA TEMPLE HAGARIBOMMANAHLLI 583212 BELLARY', 'JD', '2025-26', 'ACTIVE'),
+('20252610100138', 'M MANJULA', 'M GEETHA', '8971490653', '991229172030', 'ARALIHALLI RAMANAGARA HAGARIBOMMANHALLI 583212 BELLARY', 'JD', '2025-26', 'ACTIVE'),
+('20252610100139', 'PUSHPA', 'DODDA BASAPPA ', '8970805019', '409105485031', 'KURUBARA STREET GONAHAL SUGGENAHALLI(P) 583129 BELLARY ', 'JD', '2025-26', 'ACTIVE'),
+('20252610100140', 'T SABAJARIN', 'T SUBAN SAB', '8867671054', '794017174621', 'JAMIYA MASJID AREA HAGARIBOMMANHALLI(P) HAGARIBOMMANHALLI 583212 BELLARY ', 'JD', '2025-26', 'ACTIVE'),
+('20252610100141', 'M SAJAN', 'MASTAN SAB', '8050364640', '476126978740', 'NEAR GANESHA MANDIR SANJAY GANDI NAGAARA BELLARY 583104 BELLARY', 'JD', '2025-26', 'ACTIVE'),
+('20252610100142', 'ABHINAYA ', 'BASAVARAJA', '7353828767', '529785759066', 'ANJANEYYA TEMPLE STREET ADAVI ANANDADEVANAHALLI BACHIGOONDANAHALLI HAGARIBOMMANHALLI 583212 BELLARY', 'JJKM-H', '2025-26', 'ACTIVE'),
+('20252610100143', 'H L ANITHA ', 'HULEPPA ', '9611226130', '358159937845', 'DIBBADAHALLI CHANDARSHEKHARAPURA (P) KUDLIGI 583135 BELLARY', 'JJKM-H', '2025-26', 'ACTIVE'),
+('20252610100144', 'B PAVITRA ', 'B MALLIKARJUNA', '6362065103', '727870452754', 'ANJANEYA TEMPLE EDURUGADE UPPARAGATTI (P) HAGARIBOMMANHALLI 583212 BELLARY', 'JJKM-H', '2025-26', 'ACTIVE'),
+('20252610100145', 'A DIVYA ', 'A RAJAPPA', '8217006448', '526230808256', 'SAKRIHALLI SONNA 583220 BELLARY ', 'JJKM-H', '2025-26', 'ACTIVE'),
+('20252610100146', 'H ROSHAN BANU ', 'H JAMAL SAB', '9731828576', '289654372697', 'ARALIHALLI HAGARIBOMMANHALLI 583212 BELLARY', 'JJKM-H', '2025-26', 'ACTIVE'),
+('20252610100147', 'KOLA SURESHA NAIK ', 'KOLA  AMBREESHA NAIK ', '9383496437', '823612207531', 'LAKKIBAI COLONY RAYARALU THANDA HAMPAPTANA (P) MARIYAMMANHALLI 583222 BELLARY', 'JJKM-H', '2025-26', 'ACTIVE'),
+('20252610100148', 'M MAHENDRA ', 'H MANJUNATHA ', '8105759393', '508705892180', 'MADURU HAGARIBOMMANHALLI 583212 BELLARY', 'JJKM-H', '2025-26', 'ACTIVE'),
+('20252610100149', 'M ROSHAN KUMAR', 'M KOTRESHA ', '9743158641', '878185144836', 'ULLAVATHI HAGARIBOMMANHALLI 583212 BELLARY', 'JJKM-H', '2025-26', 'ACTIVE'),
+('20252610100150', 'RAJESHWARI V ', 'VIJAYAKUMAR S ', '8497077869', '684667585143', 'NEAR MAHADESHWARA TEMPLE HALAGEVADERAHALLI RAJARAAJESHWARI NAGARA 560098  BENGALURU ', 'JJKM-H', '2025-26', 'ACTIVE'),
+('20252610100151', 'SHWETA K ', 'KARIBASAPPA ', '9731747941', '708580590922', 'HARSHA LODGE BEHIND HAGARIBOMMANHALLI 583212 BELLARY ', 'JJKM-H', '2025-26', 'ACTIVE'),
+('20252610100152', 'SOUMYA', 'LAKSHMANA', '9945929101', '367244549340', 'BHOVI COLONY HAGARIBOMMANHALLI (P) HAGARIBOMMANHALLI 583212 BELLARY ', 'JJKM-H', '2025-26', 'ACTIVE'),
+('20252610100153', 'THAMABAHALLI MAHESH', 'T SIDDALINGAMURTHY', '7353189646', '768174949590', 'LINGAYATHARA ONI HAREGONDANAHALLI MALVI(P) HAGARIBOMMANHALLI 583212 BELLARY', 'JJKM-H', '2025-26', 'ACTIVE'),
+('20252610100154', 'VINAY ', 'HANUMANTHAPPA ', '9845095399', '599773931576', 'SONIYA GANDI NAGARA KUDLIGI ROAD HAGARIBOMMANAHALLI 583212 BELLARY ', 'JJKM-H', '2025-26', 'ACTIVE'),
+('20252610100155', 'ASWINI G ', 'G HONNURASWAMY ', '9008791393', '450775128966', 'BHUJANGANAGAR BHUJANGANAGAR (P) SABDUR 583119 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100156', 'B HASEN BASHA ', 'B SHAHID BASHA ', '7760462286', '760695225075', 'WARD NO 2 KRISHANADEVARAYA ROAD NEAR MASIDI RAMANAGARA HAGARIBOMMANHALLI 583212 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100157', 'B DASTHAGIRI ', 'B MUNNA SAHEB', '9632066605', '746932720386', 'MANDAKKI BATTI AREA HAGARIBOMMANHALLI 583212 BELLARY ', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100158', 'H SANDEEPA ', 'KENCHAPPA H ', '9902520094', '451475461945', 'NEAR DURUGAMMA TEMPLE DANAPURA DANAPURA(P) MARIYAMMANHALLI 583222 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100159', 'J K AYAN', 'J K MABU SAB', '9886346298', '814078440136', 'BACHIGONADANAHALLI -2 BACHIGONADANAHALLI (P) HAGARIBOMMANHALLI 583212 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100160', 'K SANDEEP ', 'K MANJUNATHA', '9731307909', '643638384478', 'MAIN ROAD ADAVI ANANDEVANAHALLI BACHIGONADANAHALLI (P) HAGARIBOMMANHALLI 583212 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100161', 'L L KUBERA NAIK ', 'LAKSHAMANA NAIK ', '6360285302', '217836101293', 'ANEKAL THANDA ANEKAL (P) HAGARIBOMMANHALLI 583212 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100162', 'L SHRI NAIK ', 'L RAMESHA ', '6363892576', '991878357541', 'NAKARALU THANDA ANKASAMUDRA HAGARIBOMMANHALLI 583212 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100163', 'M CHAITRA ', 'M RAJAPPA', '9741255624', '714644612947', 'DASAMAPURA HAGARIBOMMANHALLI 583212 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100164', 'N KUBENDRA ', 'N VENKTESHA ', '9148811637', '808993347261', 'KANAVINAYAKANAHALLI KALLAHALI (P) HANASI KUDLIGI 583135 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100165', 'NAJABUNI', 'M RAJ BHAKSHI ', '9902378352', '565075421403', 'KURUDAGADDI ARALIHALLI HAGARIBOMMANHALLI 583212 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100166', 'P RANJITHA', 'POOJAR JALAJAKSHI', '9731221992', '941773019869', 'ULUVATHI NEAR TO BASAVESWARA TEMPLE HAGARIBOMMANHALLI 583212 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100167', 'PRASAD ', 'THIMMANNA', '7338684420', '693272298564', 'BHOVI COLONY HAGARIBOMMANHALLI 583212 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100168', 'PRASAD S', 'SHIVA KUMAR NAIK L S ', '8088341322', '498801287920', 'ANEKAL THANDA ANEKAL(P) HAGARIBOMMANAHALLI 583212 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100169', 'R RANJITHA ', 'RAVI NAIK ', '8660512300', '509924728221', 'SEVALAL TEMPLE NEAR BASASAKODU THANDA 583224 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100170', 'S ROHIT KUMAR', 'RUDRA NAIK ', '9743066991', '512475119541', 'KALLAHALLI THANDA KALLAHALLI(P) HANASI KUDLIGI 583135 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100171', 'SARTHAK NAIK ', 'SAVA NAIK ', '8296743648', '747780669815', 'K K THANDA KOGALI SAMATU KODIHALLI 583220 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100172', 'SIDDARA BALU ', 'SIDDARA RAJAPPA ', '7349167731', '280197910077', 'WATER TANK HATTIRA  MAIN ROAD ANEKAL HGARIBOMMANHALLI 583212 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100173', 'SRIKANTHA T ', 'T HANUMANTHAPPA ', '8277335263', '985108146899', 'GOLLARA ONI NEAR SCHOOL ANEKAL ANEKAL(P) HAGARIBOMMANAHALLI 583212 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100174', 'THIRUMALA ', 'GOPINAIK ', '9743315221', '312110966859', 'DOOPADAHALLI THANDA DOOPADAHALLI (P) KUDLIGI 583135 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100175', 'V KUMAR SWAMY', 'V YALLAPPA', '9591450960', '309740319736', 'BHOVI COLONY RAMANANAGARA CHINTRAPALLI(P) HAGARIBOMMANHALLI 583212 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100176', 'VIJAY C ', 'CHANDRASHEKHAR  A K ', '9916731241', '730628107047', 'KENCHATANAHALLI VARADAPURA(P) HAGARIBOMMANHALLI 583212 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100177', 'AMITH KUMAR M ', 'VEERESHA MATHAD ', '8548927221', '457560202860', 'BAYALU HAGARIBOMMANHALLI HAGARIBOMMANHALLI 583212 BELLARY ', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100178', 'ARAVINDA KUMARA ', 'NAMADEVA NAIK', '8296658734', '373301145919', 'KALVI THANDA NEAR SEVALAL TEMPLE KALVI WEST 583214 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100179', 'B AKSHIT', 'B BASAVARAJA ', '8494870727', '226635776718', 'KURUBARA MUSLIM STREET ULAVATHI HAGARIBOMMANHALLI 583212 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100180', 'BAVI PITHAMBARIRAJ', 'BAVI SEENA NAIK ', '9740857285', '775064184549', 'ASHRAYA COLONY RAYARAL THANDA HAMPAPATNA(P) MARYIYAMMANHALLI 583222 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100181', 'CHINIVALARA JAYASHRI', 'CHINIVALARA  ASHOKA', '9880327934', '369888851299', 'OLD ESHWARA NEAR MALAVI(P) HAGARIBOMMANHALLI 583212 BELLARY ', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100182', 'H MANOJA ', 'H DODDABASAPPA ', '8970879720', '515175189292', 'ULAVATTI HAGARIBOMMANAHALLI 583212 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100183', 'K S SUPRITHA ', 'KRUSHNA NAIK ', '7676308304', '658036576370', '20th WARD KERE THANDA KAMALAPURA (P) 583221 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100184', 'KALPANA ', 'LAL SING NAIK ', '9535172831', '218712297756', 'VYASAPURA THANDA HAMPAPATNA (P) MARIYAMMANHALLI 583222 BELLARY ', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100185', 'M KHAJA HUSEN', 'M HUSEN BASHA', '8296589600', '898487500490', 'KUDLIGI ROAD ARALIHALLI RAMANAGARA HAGARIBOMMANHALLI 583212 BELLARY ', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100186', 'KAMMARA MOUNESHA ', 'KAMMARA SRIDHARACHARI', '9741792945', '376536352687', 'NELLUKUDURE NELLUKUDURE(P) 583220 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100187', 'N PARASHURAMA ', 'N KOTRESH ', '7026112684', '996343313065', 'ULAVATHI ULAVATHI(P) HAGARIBOMMANAHALLI 583212 BELLARY ', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100188', 'T PAVAN KUMAR ', 'T GANESHA', '9945865714', '388894627811', 'ULAVATTI ULAVATTI (P) HAGARIBOMMANHALLI 583212 BELLARY ', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100189', 'SANJANA ', 'MARESH ', '6362318531', '928696325323', 'CHILAKANAHATTI CHILAKANAHATTI(P) MARIYAMMANHALLI 583222 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100190', 'T GIRISH ', 'UMESHA ', '9035701104', '641577754929', 'K V O R COLONY SOMESHWARA NAGARA HAGARIBOMMANHALLI 583212 BELLARY', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100191', 'V PREETHAM ', 'VINODA NAIK ', '8137022734', '535721258408', 'BANYAN THANDA KALVI WEST HADAGALI 583214 BELLARY ', 'Sri Renuka', '2025-26', 'ACTIVE'),
+('20252610100192', 'D MAHAMMAD ANSAR ', 'RAJ SAB ', '9880886311', '779346877086', 'BYPASS ROAD JALI NAGARA HAGARIBOMMANHALLI 583212 VIJAYANAGARA ', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100193', 'SANIKA ', 'L T HIRYA NAIK ', '9740902178', '365292562102', 'DURUGAMMA GUDI ONI ANEKAL THANDA HAGARIBOMMANHALLI 583212 BELLARY ', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100194', 'RAVI KUMAR V ', 'V MUNIYAPPA ', '9900618376', '949973274062', 'THERU BEEDI M G ROAD RAMANAGARA HAGARIBOMMANAHALLI 583212 BELLARY', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100195', 'CHARALATHA M ', 'MARUTHI M ', '9916277047', '831056762818', '1st WARD RAMANAGARA HAGARIBOMMANHALLI 583212 BELLARY', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100196', 'H V CHETANUSHREE ', 'JAMADAGNI ', '9880572486', '831813528827', '9th WARD BHOVI COLONY HAGARIBOMMANAHALLI 583212 BELLARY', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100197', 'JOYA FARUKI ', 'CHAND BASHA', '9740419397', '832888240710', 'BHOVI COLONY HAGARIBOMMMANHALLI 583212', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100198', 'JAYASHRI BUDUKANAHALLI ', 'BUDUKANAHALLI BHAGYA ', '7026227326', '519838050505', '12th WARDD BHOVI COLONY HOLAGUNDI HADAGALI 583219 BELLARY', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100199', 'ASHWINI ', 'SEETH BAI', '9895296940', '522757746472', 'NEAR SCHOOL DASARAHALLI THANDA HADAGALI 583219 BELLARY ', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100200', 'B ARUN ', ' B RAMESH', '9164461011', '803332132258', 'RAMANAGARA HAGARIBOMMANHALLI 583212 BELLARY', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100201', 'B CHETHAN', 'N BOJYANAIK ', '6363202352', '314975178363', 'K K THANDA KOGALI (P) GOAGALI 583220 BELLARY', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100202', 'HUSEN BHASHA B ', 'SHAHID BHASHA B', '7760462286', '481721286396', 'RAMANAGARA NEAR JAMIYA MASEEDI  HAGARIBOMMANHALLI 583212 BELLARY', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100203', 'GANGAMMA ', 'RAMESHA NAIK ', '9148772583', '583747411694', 'VYASAPURA THANDA HAMAPAPATTANA(P) MARIYAMMANHALLI 583222 BELLARY', 'JJKM-P', '2025-26', 'ACTIVE');
+INSERT INTO `ATGET_Students_Details` (`Admission_No`, `Student_Name`, `Parent_Name`, `Contact_No`, `Student_Aadhar_No`, `Student_Address`, `School_Name`, `Admission_Year`, `Course_Completion_Academic_Year`) VALUES
+('20252610100204', 'H VARSHINI ', 'H RENUKAVVA ', '8123366920', '213123444464', 'CHIMMANAHALLI VILLAGE NELKUDRI 583220 BELLARY ', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100205', 'HEMAVATHI ', 'SHIVAKUMAR', '9606831545', '337958401297', 'RAMANAGARA MARUTHI ROAD HAGARIBOMMANAHLLI 583212 BELLARY', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100206', 'K MANU ', 'K HOLEPPA ', '9353705685', '610182140484', 'RAMANAGARA HAGARIBOMMANHALLI 583212 BELLARY ', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100207', 'MOHAN S ', 'SANGA NAIK ', '6360870568', '201516753937', '7th WARD KOGALI THANDA MALVI (P) HAGARIBOMMAHAHALLI 583212 VIJAYANAGARA ', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100208', 'P DEVASENA ', 'P VENKATESH NAIK ', '8088391380', '722538748104', 'RAYARALA THANDA HAMPAPATTANA (P) MARIYAMMANHALLI 583222 BELLARY ', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100209', 'P SINDHU ', 'P BASAVARAJA ', '9611892027', '209054185062', 'LOKAPPANA HOLA NANDIBANDE (P) MARIYAMMANHALLI 583222 BELLARY', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100210', 'P Y PALLAVI', 'P B YADAV NAIK ', '9663294642', '383797836260', 'B B THANDA BANDEBASAPURE THANDA KUDLIGI 583135 BELLARY ', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100211', 'PRAVEENANAIK L ', 'LAVANAIK', '8105973224', '455105749233', 'THALEBASAPURA THANDA CHILLLAKANAHATTI MARIYAMMANAHALLI 583222 BELLARY', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100212', 'R AZEEM ', 'RAJABHAKSHI ', '9844575399', '231443805173', 'GOVEREMENT PUBLIC HOSPITAL RAMANAGARA HAGARIBOMMANAHALLI 583212 BELLARY ', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100213', 'RAVINAIK D ', 'ROJA BAI ', '9535050998', '378077961216', 'MOTHIKAL THANDA HYALYA KOTTURU 583134 BELLARY', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100214', 'S AKASHA', 'S SURESHA KUMARA', '9900407462', '942859584722', 'NEAR TO SEVALAL TEMPLE KALLAHALLI THANDA KUDLIGI-583135 BALLARI ', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100215', 'V PALLAVI ', 'V MUNIYAPPA ', '9900618376', '613476035642', 'TERU BEEDI RAMANAGARA HAGARIBOMMANAHALLI-583212 BALLARI ', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100216', 'VINOD ', 'MALLIKARJUNA ', '9535422352', '381213418754', '14th WARD NISHANI CAMP T.B.DAM  T.B.DAM 583225  BELLARY', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100217', 'D AYISH ', 'SHABEENA BANU', '8150926066', '938257401019', 'MUSLIM STREET HAGARIBOMMANHALLI ULAVATHI (P) HAGARIBOMMANAHALLI 583212 BELLARY ', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100218', 'E T LINGARAJU ', 'E T NAGARAJA ', '7676348495', '789011210546', 'BESIDE VALMIKI SAMUDAYA BHAVANA PINJARAHEGGDAL (P) HAGARIBOMMANAHALLI 583212 BELLARY', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100219', 'FARAT NEES BEGUM ', 'RAJABHAKSHI', '6361950066', '344989954558', 'JANATHA COLONY ARALIHALLI HAGARIBOMMANHALLI 583212 BELLARY', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100220', 'G D ANIL NAIK ', 'G DURGYANAIK ', '6362899829', '834744835604', 'THLEBASAPURA THANDA CHILAKANAHATTI MARIYAMMANHALLI 583222 BELLARY', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100221', 'H SONIKA ', 'KUBHERAPPA ', '9743136132', '806757713445', 'KALLAHALLI HANASI (P) KUDLIGI 583135 BELLARY', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100222', 'HARSHIKA L T ', 'THAVARYA NAIK L M ', '9741675467', '549520519863', 'KRISHNADEVARYA BADAVANE ANEKAL THANDA ANEKAL (P) HAGARIBOMMANAHALLI 583212 BELLARY', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100223', 'H G DEVIKA ', 'GADIHALLI BASAMMA ', '7337831970', '700184828161', 'GOVERMENT SCHOOL NEAR KITTANURU KITTANURU(P) KITTANURU 583224 BELLARY', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100224', 'A HULIGEMMA ', 'LAKSHMANA', '9739627748', '511964585022', 'TAMABRAHALLI ROAD NEAR ANHINAYYA TEMPLE G KODIHALLI (P) KODIHALLI 583214 VIJAYANAGARA  ', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100225', 'JEEVAN M', 'MAJAI HANUMATHAPPA ', '6366299702', '497999303339', 'HANUMAGONDANAHALLI GUDDIKERE KODIHALLI 583214 BELLARY', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100226', 'K M CHARANTESHA ', 'K M KOTRESHA ', '9740464180', '443808834389', 'MILITARY BAYALU RAMANAGARA HAGARIBOMMANHALLI 583212 BELLARY', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100227', 'CHETAN K M', 'K MSHIVARAJ ', '9880190626', '460540694643', 'KOTE STREET HIREHEGGADHAL HIREHEGGADAL (P) KUDLIGI 583135 BELLARY', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100228', 'L MOHAMMAD KHAJA ', 'L SALAM SAB', '9902723735', '568090606149', '9th WARD GUNDINAKERE HARAPANAHALLI 583132 DAVANAGERE ', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100229', 'GOUTHAMI', 'L S SANTHOSH NAIK ', '9071285868', '464289653513', 'NEAR SEVALALA TEMPLE ANEKAL THANDA ANEKAL(P) HAGARIBOMMANHALLI 583212 BELLARY', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100230', 'LANKESHA ', 'SEVA NAIK ', '8296743648', '765971632920', '#101 8th WARD KOGALI THANDA KOGALI (P) KOGALI 583220 BELLARY', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100231', 'M ANUPAMA ', 'M KRISHANAMURTHI', '7760462500', '541247886183', '1st  WARD VADDARA GUNDI BEHIND PANDURANGA TEMPLE HAGARIBOMMANHALLI 583212 BELLARY ', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100232', 'M NETHRAVATHI', 'M GOWRESH ', '8105264866', '292470266376', '25th WARD JAMBUNATHAHALLI HOSPET 583201 BELLARY', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100233', 'M TANVIR', 'MASTAN SAB', '8050364640', '629923824448', 'NEAR GANESH TEMPLE SANJAY GNADHI NAGAR BELLARY 583104 BELLARY', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100234', 'NAYANA ', 'DURGAPPA ', '9611032501', '403809889626', 'KUDLIGI ROAD SONIYA GANDHI NAGARA HAGARIBOMMANAHALLI 583212 BELLARY', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100235', 'PRIYA S ', 'SHIVAKUMARA NAIK L S ', '9743182402', '258149873509', 'NEAR SEVALALA TEMPLE ANEKAL THANDA ANEKAL(P) HAGARIBOMMANHALLI - 583212 BALLARI ', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100236', 'PINJAR AJIJULLA', 'DADAPEER SAHEB ', '6360763424', '417944458504', 'PATEL ROAD RAMANAGARA 2th WARD CHINTRAPALLI (P) HAGARIBOMMANAHALLI-583212 BALLARI', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100237', 'RAJIYA BEGUM ', 'MOULA SAB ', '9538496715', '729577070760', 'TARAKARI MARKET BASAVESHWARA BAZAR HAGARIBOMMANAHALLI(P)-583212 BALLARI', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100238', 'SEEMA', 'M JILAN ', '7406607625', '359979539645', '3rd CROSS SONIYAGANDHI NAGARA H.B.HALLI HAGARIBOMMANAHALLI-583212 BALLARI ', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100239', 'SOUMYA', 'AKASHA ', '8105624470', '758903653047', 'B MUTHUKURU CHINTRAPALLI (P) HAGARIBOMMANAHALLI-583212 BALLARI', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100240', 'U DEVIKA', 'U PARASAPPA', '9632400836', '266306645158', 'RAMANAGARA NEAR PANDURANGA TEMPLE HAGARIBOMMANAHALLI-583212 BALLARI', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100241', 'VAJIYA', 'K SHABBIR', '9380434679', '412991639315', 'JALI NAGARA MANDALI BATTI AREA HAGARIBOMMANAHALLI-583212 BALLARI', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100242', 'VIKRAM NAIK ', 'SURESHA  NAIK  L N', '6361911828', '937164266598', 'SEVALALA BADAVANE ANEKAL THANDA ANEKAL(P) HAGARIBOMMANAHALLI-583212 VIJAYANAGAR ', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100243', 'G.R.K SHARATH KUMAR', 'KOTRESHA', '9972419575', '504443331258', 'GARAGA G.NAGALAPURA (P) MARIYAMMANAHALLI-583212 BALLARI', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100244', 'G.R.K BHARATH KUMAR', 'KOTRESHA', '9972419575', '717499336877', 'GARAGA G NAGALAPURA (P) MARIYAMMANAHALLI-583222 BALLARI', 'JJKM-P', '2025-26', 'ACTIVE'),
+('20252610100245', 'V YASHAVANTHA', 'HANUMANTHAPPA ', '9845095399', '475083816763', 'SONIYAGANDI NAGARA KUDLIGI ROAD RAMANAGARA HAGARIBOMMANAHALLI-583212 BALLARI', 'JJKM-P', '2025-26', 'ACTIVE');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ATGET_Student_Current_Class_Details`
+--
+
+CREATE TABLE `ATGET_Student_Current_Class_Details` (
+  `Admission_no` varchar(20) NOT NULL,
+  `Student_Current_Class` varchar(5) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `ATGET_Student_Current_Class_Details`
+--
+
+INSERT INTO `ATGET_Student_Current_Class_Details` (`Admission_no`, `Student_Current_Class`) VALUES
+('20252620100005', '2nd'),
+('20252620100004', '2nd'),
+('20252620100003', '2nd'),
+('20252620100002', '2nd'),
+('20252620100001', '2nd'),
+('20252620100006', '2nd'),
+('20252620100007', '2nd'),
+('20252620100008', '2nd'),
+('20252620100009', '2nd'),
+('20252620100010', '2nd'),
+('20252620100011', '2nd'),
+('20252620100012', '3rd'),
+('20252620100013', '3rd'),
+('20252620100014', '3rd'),
+('20252620100015', '3rd'),
+('20252620100016', '3rd'),
+('20252620100017', '3rd'),
+('20252620100018', '4th'),
+('20252620100019', '4th'),
+('20252620100020', '4th'),
+('20252620100021', '4th'),
+('20252620100022', '4th'),
+('20252620100023', '4th'),
+('20252620100024', '4th'),
+('20252620100025', '4th'),
+('20252620100026', '4th'),
+('20252620100027', '5th'),
+('20252620100028', '5th'),
+('20252620100029', '5th'),
+('20252620100030', '5th'),
+('20252620100031', '5th'),
+('20252620100032', '5th'),
+('20252620100033', '5th'),
+('20252620100034', '5th'),
+('20252620100035', '5th'),
+('20252620100036', '5th'),
+('20252620100037', '5th'),
+('20252620100038', '5th'),
+('20252620100039', '5th'),
+('20252620100040', '6th'),
+('20252620100041', '6th'),
+('20252620100042', '6th'),
+('20252620100043', '6th'),
+('20252620100044', '6th'),
+('20252620100045', '6th'),
+('20252620100046', '6th'),
+('20252620100047', '6th'),
+('20252620100048', '6th'),
+('20252620100049', '6th'),
+('20252620100050', '6th'),
+('20252620100051', '6th'),
+('20252620100052', '7th'),
+('20252620100053', '7th'),
+('20252620100054', '7th'),
+('20252620100055', '7th'),
+('20252620100056', '7th'),
+('20252620100057', '7th'),
+('20252620100058', '7th'),
+('20252620100059', '7th'),
+('20252620100060', '7th'),
+('20252620100061', '7th'),
+('20252620100062', '7th'),
+('20252620100063', '7th'),
+('20252620100064', '8th'),
+('20252620100065', '8th'),
+('20252620100066', '8th'),
+('20252620100067', '8th'),
+('20252620100068', '8th'),
+('20252620100069', '8th'),
+('20252620100070', '8th'),
+('20252620100071', '8th'),
+('20252620100072', '8th'),
+('20252620100073', '9th'),
+('20252620100074', '9th'),
+('20252620100075', '9th'),
+('20252620100076', '9th'),
+('20252620100077', '9th'),
+('20252620100078', '9th'),
+('20252610100001', '4th'),
+('20252610100002', '4th'),
+('20252610100003', '4th'),
+('20252610100004', '4th'),
+('20252610100005', '4th'),
+('20252610100006', '4th'),
+('20252610100007', '4th'),
+('20252610100008', '4th'),
+('20252610100009', '4th'),
+('20252610100010', '4th'),
+('20252610100011', '4th'),
+('20252610100012', '4th'),
+('20252610100013', '4th'),
+('20252610100014', '4th'),
+('20252610100015', '4th'),
+('20252610100016', '4th'),
+('20252610100017', '4th'),
+('20252610100018', '4th'),
+('20252610100019', '4th'),
+('20252610100020', '5th'),
+('20252610100021', '5th'),
+('20252610100022', '5th'),
+('20252610100023', '5th'),
+('20252610100024', '5th'),
+('20252610100025', '5th'),
+('20252610100026', '5th'),
+('20252610100027', '5th'),
+('20252610100028', '5th'),
+('20252610100029', '5th'),
+('20252610100030', '5th'),
+('20252610100031', '5th'),
+('20252610100032', '5th'),
+('20252610100033', '5th'),
+('20252610100034', '5th'),
+('20252610100035', '5th'),
+('20252610100036', '5th'),
+('20252610100037', '5th'),
+('20252610100038', '5th'),
+('20252610100039', '5th'),
+('20252610100040', '5th'),
+('20252610100041', '5th'),
+('20252610100042', '6th'),
+('20252610100043', '6th'),
+('20252610100044', '6th'),
+('20252610100045', '6th'),
+('20252610100046', '6th'),
+('20252610100047', '6th'),
+('20252610100048', '6th'),
+('20252610100049', '6th'),
+('20252610100050', '6th'),
+('20252610100051', '6th'),
+('20252610100052', '6th'),
+('20252610100053', '6th'),
+('20252610100054', '6th'),
+('20252610100055', '6th'),
+('20252610100056', '6th'),
+('20252610100057', '6th'),
+('20252610100058', '6th'),
+('20252610100059', '6th'),
+('20252610100060', '6th'),
+('20252610100061', '6th'),
+('20252610100062', '6th'),
+('20252610100063', '6th'),
+('20252610100064', '6th'),
+('20252620100079', '6th'),
+('20252610100065', '7th'),
+('20252610100066', '7th'),
+('20252610100067', '7th'),
+('20252610100068', '7th'),
+('20252610100069', '7th'),
+('20252610100070', '7th'),
+('20252610100071', '7th'),
+('20252610100072', '7th'),
+('20252610100073', '7th'),
+('20252610100074', '7th'),
+('20252610100075', '7th'),
+('20252610100076', '7th'),
+('20252610100077', '7th'),
+('20252610100078', '7th'),
+('20252610100079', '7th'),
+('20252610100080', '7th'),
+('20252610100081', '7th'),
+('20252610100082', '7th'),
+('20252610100083', '8th'),
+('20252610100084', '8th'),
+('20252610100085', '8th'),
+('20252610100086', '8th'),
+('20252610100087', '8th'),
+('20252610100088', '8th'),
+('20252610100089', '8th'),
+('20252610100090', '8th'),
+('20252610100091', '8th'),
+('20252610100092', '8th'),
+('20252610100093', '8th'),
+('20252610100094', '8th'),
+('20252610100095', '8th'),
+('20252610100096', '8th'),
+('20252610100097', '8th'),
+('20252610100098', '8th'),
+('20252610100099', '8th'),
+('20252610100100', '8th'),
+('20252610100101', '8th'),
+('20252610100102', '8th'),
+('20252610100103', '8th'),
+('20252610100104', '8th'),
+('20252610100105', '9th'),
+('20252610100106', '9th'),
+('20252610100107', '9th'),
+('20252610100108', '9th'),
+('20252610100109', '9th'),
+('20252610100110', '9th'),
+('20252610100111', '9th'),
+('20252610100112', '9th'),
+('20252610100113', '9th'),
+('20252610100114', '9th'),
+('20252610100115', '9th'),
+('20252610100116', '9th'),
+('20252610100117', '9th'),
+('20252610100118', '9th'),
+('20252610100119', '9th'),
+('20252610100120', '9th'),
+('20252610100121', '9th'),
+('20252610100122', '9th'),
+('20252610100123', '9th'),
+('20252610100124', '8th'),
+('20252610100125', '8th'),
+('20252610100126', '8th'),
+('20252610100127', '8th'),
+('20252610100128', '8th'),
+('20252610100129', '8th'),
+('20252610100130', '8th'),
+('20252610100131', '8th'),
+('20252610100132', '8th'),
+('20252610100133', '8th'),
+('20252610100134', '9th'),
+('20252610100135', '9th'),
+('20252610100136', '9th'),
+('20252610100137', '9th'),
+('20252610100138', '9th'),
+('20252610100139', '9th'),
+('20252610100140', '9th'),
+('20252610100141', '9th'),
+('20252610100142', '9th'),
+('20252610100143', '9th'),
+('20252610100144', '9th'),
+('20252610100145', '9th'),
+('20252610100146', '9th'),
+('20252610100147', '9th'),
+('20252610100148', '9th'),
+('20252610100149', '9th'),
+('20252610100150', '9th'),
+('20252610100151', '9th'),
+('20252610100152', '9th'),
+('20252610100153', '9th'),
+('20252610100154', '9th'),
+('20252610100155', '8th'),
+('20252610100156', '8th'),
+('20252610100157', '8th'),
+('20252610100158', '8th'),
+('20252610100159', '8th'),
+('20252610100160', '8th'),
+('20252610100161', '9th'),
+('20252610100162', '9th'),
+('20252610100163', '9th'),
+('20252610100164', '9th'),
+('20252610100165', '8th'),
+('20252610100166', '8th'),
+('20252610100167', '8th'),
+('20252610100168', '8th'),
+('20252610100169', '8th'),
+('20252610100170', '8th'),
+('20252610100171', '8th'),
+('20252610100172', '8th'),
+('20252610100173', '8th'),
+('20252610100174', '8th'),
+('20252610100175', '8th'),
+('20252610100176', '8th'),
+('20252610100177', '9th'),
+('20252610100178', '9th'),
+('20252610100179', '9th'),
+('20252610100180', '9th'),
+('20252610100181', '9th'),
+('20252610100182', '9th'),
+('20252610100183', '9th'),
+('20252610100184', '9th'),
+('20252610100185', '9th'),
+('20252610100186', '9th'),
+('20252610100187', '9th'),
+('20252610100188', '9th'),
+('20252610100189', '9th'),
+('20252610100190', '9th'),
+('20252610100191', '9th'),
+('20252610100192', '4th'),
+('20252610100193', '4th'),
+('20252610100194', '4th'),
+('20252610100195', '5th'),
+('20252610100196', '5th'),
+('20252610100197', '5th'),
+('20252610100198', '5th'),
+('20252610100199', '5th'),
+('20252610100200', '6th'),
+('20252610100201', '6th'),
+('20252610100202', '6th'),
+('20252610100203', '6th'),
+('20252610100204', '6th'),
+('20252610100205', '6th'),
+('20252610100206', '6th'),
+('20252610100207', '6th'),
+('20252610100208', '6th'),
+('20252610100209', '6th'),
+('20252610100210', '6th'),
+('20252610100211', '6th'),
+('20252610100212', '6th'),
+('20252610100213', '6th'),
+('20252610100214', '6th'),
+('20252610100215', '6th'),
+('20252610100216', '6th'),
+('20252610100217', '7th'),
+('20252610100218', '7th'),
+('20252610100219', '7th'),
+('20252610100220', '7th'),
+('20252610100221', '7th'),
+('20252610100222', '7th'),
+('20252610100223', '7th'),
+('20252610100224', '7th'),
+('20252610100225', '7th'),
+('20252610100226', '7th'),
+('20252610100227', '7th'),
+('20252610100228', '7th'),
+('20252610100229', '7th'),
+('20252610100230', '7th'),
+('20252610100231', '7th'),
+('20252610100232', '7th'),
+('20252610100233', '7th'),
+('20252610100234', '7th'),
+('20252610100235', '7th'),
+('20252610100236', '7th'),
+('20252610100237', '7th'),
+('20252610100238', '7th'),
+('20252610100239', '7th'),
+('20252610100240', '7th'),
+('20252610100241', '7th'),
+('20252610100242', '7th'),
+('20252610100243', '7th'),
+('20252610100244', '7th'),
+('20252610100245', '7th');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `ATGET_Bank_Details`
+--
+ALTER TABLE `ATGET_Bank_Details`
+  ADD PRIMARY KEY (`Bank_ID`);
+
+--
+-- Indexes for table `ATGET_Expense_Table`
+--
+ALTER TABLE `ATGET_Expense_Table`
+  ADD PRIMARY KEY (`Transaction_ID`);
+
+--
+-- Indexes for table `ATGET_Login_Creds`
+--
+ALTER TABLE `ATGET_Login_Creds`
+  ADD UNIQUE KEY `username` (`username`);
+
+--
+-- Indexes for table `ATGET_Non_Schools_Result_Table`
+--
+ALTER TABLE `ATGET_Non_Schools_Result_Table`
+  ADD PRIMARY KEY (`Course_Name`);
+
+--
+-- Indexes for table `ATGET_Schools_Result_Table`
+--
+ALTER TABLE `ATGET_Schools_Result_Table`
+  ADD PRIMARY KEY (`Admission_No`,`Current_ClassOrStandard`,`Semister`);
+
+--
+-- Indexes for table `ATGET_School_Semisters`
+--
+ALTER TABLE `ATGET_School_Semisters`
+  ADD PRIMARY KEY (`Semester_Name`);
+
+--
+-- Indexes for table `ATGET_Students_Details`
+--
+ALTER TABLE `ATGET_Students_Details`
+  ADD PRIMARY KEY (`Admission_No`);
+
+--
+-- Indexes for table `ATGET_Student_Current_Class_Details`
+--
+ALTER TABLE `ATGET_Student_Current_Class_Details`
+  ADD PRIMARY KEY (`Admission_no`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `ATGET_Bank_Details`
+--
+ALTER TABLE `ATGET_Bank_Details`
+  MODIFY `Bank_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `ATGET_Expense_Table`
+--
+ALTER TABLE `ATGET_Expense_Table`
+  MODIFY `Transaction_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
